@@ -1,0 +1,1 @@
+[Solutions](http://mitpress.mit.edu/algorithms/)
