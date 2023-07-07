@@ -50,3 +50,24 @@ What are algorithms? Why worthwhile? What is the role relative to other technolo
 6. 上课迟到点名
 
 ### 1.2 Algorithms as a technology
+*infinite time* and *correct answer*
+- Efficiency
+    - insertion sort: O(n^2)
+    - merge sort: O(n log n)
+        > even a poor compiler, when the number is large, merge sort still faster than a better compiler
+- Algorithms and other technologies
+    - algorithms are important as hardware
+    - Machine Learning is a kind of algorithm itself, 
+        >its success is to solve the problems for which we, as human, do not really understand what the right algorithm is.
+    - Data Science, an interdisciplinary field
+
+#### Excercises
+1. Shopping sites' recommendation algorithms.
+2. 
+3.  
+
+### test
+
+if 100n^2 < 2^n return n
+else n+=1
+```
