@@ -168,21 +168,66 @@ Usually, an algorithm that is asymptotically more efficient is the best choice f
 
 ### 3.1 Ο-notation, Ω-notation, and Θ-notation
 
-
-
 ###### Ο-notation
+
 -   concept of _Ο-notation_:
     > `7n^3+100n^2-20n+6`. It's highest order is 7n^3, this function's rate of growth is n^3, no faster than n^3. Thus, Ο(n^3), and also Ο(n^4) and Ο(n^5) and so on.
 -   More generally, it is Ο(n^c) for any constant c>=3.
+
 ###### Ω-notation
-- concept of *Ω-notation*
-    - at least fast as.
-    - Ω(n^c), c<=3. Ω(n^3),Ω(n^2),Ω(n^1) and so on.
+
+-   concept of _Ω-notation_
+    -   at least fast as.
+    -   Ω(n^c), c<=3. Ω(n^3),Ω(n^2),Ω(n^1) and so on.
+
 ###### Θ-notation
-- concept of `Θ-notation`:
-    - **precisely** at a certain rate
-    - based--once again--on the highest-order term.
-    - ***if a function both Ο(n^3) and Ω(n^3),then Θ(n^3)***
+
+-   concept of `Θ-notation`:
+    -   **precisely** at a certain rate
+    -   based--once again--on the highest-order term.
+    -   **_if a function both Ο(n^3) and Ω(n^3),then Θ(n^3)_**
+
 ### 3.2 Asymptotic notation: formal definitions
+
+> **_notice that this chapter 3.2 is skipped, it's not understandable for me now._**  
+> **_time:Mon Jul 10 16:27:21 CST 2023_**
+
 ![Graphic example](../pictures/figure3_2.png)
+
 ###### Ο-notation
+
+**_TOO PROFESSIONAL FOR ME TO UNDERSTAND, just skipped this chapter!_**
+
+-   Big O is a upper bound
+-   Ω is a lower bound
+-   Θ is a tight bound
+
+---
+
+**_Theorem 3.1_**  
+For any two functions `f(n)` and `g(n)`, we have `f(n) = Θ(g(n))` if and only if `f(n) = Ο(g(n))` and `f(n) = Ω(g(n))`.
+
+---
+
+###### Asymptotic notation and running times
+
+-   When use _Asymptotic notation_
+    > make sure as precise as possible without overstating which running time it applies to.
+
+###### Asymptotic notation in equations and inequations
+
+###### Proper abuses of asymptotic notation
+
+**o-notation**
+**ω-notation**
+### 3.3 Standard notations and common functions
+***JUST FOR KNOW!***
+###### Monotonicity
+...
+###### Floors and ceilings
+Obey the following properties:  
+![properties](../pictures/floor_and_ceiling.png)
+###### Modular arithmetic
+![properties](../pictures/modular_arithmetic.png)
+###### Polynomials
+![properties](../pictures/polynomials.png)

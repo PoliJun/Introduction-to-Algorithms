@@ -126,7 +126,7 @@ Using reasoning similar to what we used for insertion sort, analyze the running 
 > **insertion sort analyze:**
 > Ο(n^2)
 > Ω(n)
-> Θ(n^2)
+> Θ between n and n^2. So, it's better than selection sort.
 
 # 3.1-3 
 Suppose that α is a fraction in the range 0 < α < 1. Show how to generalize the lower-bound argument for insertion sort to consider an input in which the αn largest values start in the fi rst αn positions. What additional restriction do you need to put on α? What value of α maximizes the number of times that the αn largest values must pass through each of the middle (1 – 2α)n array positions?

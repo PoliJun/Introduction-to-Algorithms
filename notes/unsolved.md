@@ -7,3 +7,6 @@ My Answer:
 > **this maybe not right!!!**
 
 # 3.1-3
+
+# Asymptotic notation: formal definitions
+> This is too professional for me to understand.
