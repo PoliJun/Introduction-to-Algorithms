@@ -184,4 +184,5 @@ Usually, an algorithm that is asymptotically more efficient is the best choice f
     - based--once again--on the highest-order term.
     - ***if a function both Ο(n^3) and Ω(n^3),then Θ(n^3)***
 ### 3.2 Asymptotic notation: formal definitions
+![Graphic example](../pictures/figure3_2.png)
 ###### Ο-notation
