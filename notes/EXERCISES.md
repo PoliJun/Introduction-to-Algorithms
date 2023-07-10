@@ -102,8 +102,7 @@ Binary_Search(A, k)
             right=mid-1
         else
             return mid
-    return -1
-# 3.1-1 
+    return -1 
 
     
 
