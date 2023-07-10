@@ -137,4 +137,26 @@ Examining the insertion sort. To use a method called devide-and-conquer to devel
 ---
 - merge sort:
     - closely follows the divide-and-conquer method.
-    
+    - the key operation: "combine" step.
+#### 2.3.2 Analyzing divede-and-conquer method
+- running time described by a *recurrence equation* or *recurrence*
+- running time:  
+    > D: divede; 1/b * n: size of b problem; C: combine 
+    ![running time](../pictures/recurrence%20run%20time.png)
+- two convention:
+    1. simplification: ignoring floors and ceilings
+    2. to omit a statement of the base cases of the recurrence.
+        > because the base cases are always T(n)=Θ(1), if `n<n0` or `n>n0`
+    ###### Analysis of merge sort
+    - Divide: D(n)=Θ(1). 
+        > just compute the middle of the subarray
+    - Conquer: 2T(n/2)
+        > solving two subproblems, each of size n/2
+    - Combine: C(n)=Θ(n)
+        > Merge procedure on an n-element subarray.
+        > So, sum of them is `T(n)=2T(n/2)+Θ(n)`.
+    - Θ(n log n)
+        - rows(levels): divide = log n
+        - columns(elements): each touched once => n
+## 3 Characterizing Running Times
+        

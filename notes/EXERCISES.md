@@ -67,3 +67,41 @@ Official Solution:
 > already sorted, taking ‚.n/ time for an n-element array. If the array is already
 > sorted, then the algorithm is done. Otherwise, sort the array as usual. The best-
 > case running time is generally not a good measure of an algorithm’s efficiency.
+
+# 2.3-1
+merge sort explain
+# 2.3-2
+...
+# 2.3-3
+12-18: 
+- initialize: i=0,j=0,nL>0,nR>0
+- maintaine: i=i+1,j=j+1
+- terminate: i=nL or j=nR
+# 2.3-6
+Binary Search
+
+input: sorted array: `A`, target: `k`
+output: the index of value `k` in array `A`
+
+Algorithm:
+1. find the mid of array `A`
+2. if `A[mid]==k`, return `mid`,end
+3. if `A[mid]<k`, find the right part.
+4. if `A[mid]>k`, find the left part.
+5. repeat 1. 2. 3. 4. in current searching subarray.
+
+pseudocode:
+
+Binary_Search(A, k)
+    left=1, right=A.length
+    while left < right
+        mid=(left+right)/2
+        if A[mid] < k
+            left=mid+1
+        else if A[mid] > k
+            right=mid-1
+        else
+            return mid
+    return -1
+    
+
