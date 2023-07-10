@@ -1,3 +1,5 @@
+***At this point: *Mon Jul 10 19:56:50 CST 2023*, I decided to concentrate on the 1. *important concept* and 2.typical functions and algorithms only for period of time of future untill I have more professional experience. Then, I will be back to tear this book into pieces!!!!!!!!!!!!!!!***
+
 # Part I Foundations
 
 ## Introduction
@@ -220,14 +222,80 @@ For any two functions `f(n)` and `g(n)`, we have `f(n) = Θ(g(n))` if and only i
 
 **o-notation**
 **ω-notation**
+
 ### 3.3 Standard notations and common functions
-***JUST FOR KNOW!***
+
+**_JUST FOR KNOW!_**
+
 ###### Monotonicity
+
 ...
+
 ###### Floors and ceilings
+
 Obey the following properties:  
 ![properties](../pictures/floor_and_ceiling.png)
+
 ###### Modular arithmetic
+
 ![properties](../pictures/modular_arithmetic.png)
+
 ###### Polynomials
+
 ![properties](../pictures/polynomials.png)
+
+###### Exponentials
+
+###### Logarithms
+
+###### Factorials
+
+###### Functional iteration
+
+![properties](../pictures/functional_iteration.png)
+
+###### The iterated logarithm function
+
+###### Fibonacci numbers
+
+## Divide-and-Conquer
+
+-   **Divede** the problem into subproblems
+-   **Conquer** the subproblems by solving them recursively.
+-   **Combine** the subproblem solutions to form a solution to the original problem.
+
+> The recursion _bottoms out_ when it reaches a base case and the subproblem is small enough to solve directly without further recursing.
+
+###### Recurrence
+
+-   general form:
+    -   an equation or inequality that describes a function over the integers or reals using the function itself.
+    -   It contains two or more cases, depending on the argument.
+    -   _recursive case_: involves the recursive invocation
+    -   _base case_: not involve a recursive invocation.
+    -   _well difined_: if there is at least one fuction that satisfies it
+        > and _ill defined_ otherwise
+
+###### Algorithmic recrrences
+
+-   for every sufficient large threshold constant `n0>0`, the following two properties
+    1. For all `n<n0`, we have T(n)=Θ(1).
+    2. For all `n>=n0`, termination is in a defined base case within a finite number of recursive invocations.
+-   Conventions for recurrences
+    > **_Whenever a recurrence is stated without an explicit base case, we assume that the recurrence is algorithmic._**
+###### Divide-and-Conquer and Recurrences
+###### Solving recurrences
+- four methods:
+    ![four methods](../pictures/four_methods_to%20solve_recurrence.png)
+### 4.1 Multiplying square matrices
+- triple loop: 
+    - 1-4: row
+    - 2-4: column
+    - 3-4: add a polynomial
+    ![triple loop](../pictures/triply_loop.png)
+- divide-and-conquer
+    - base case: `n == 1`. `c11=c11+a11*b11`
+    - divide to n/2
+    - conquer: recurrences
+    ![divide-and-conquer](../pictures/divide_and_conquer_matrix.png)
+
