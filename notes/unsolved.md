@@ -5,3 +5,5 @@ d. Give an algorithm to determine the number of inversions on n elements in Θ(n
 My Answer:
 > just add a `count` variable starting at 0 and to plus one every time the right part added to the A[i]
 > **this maybe not right!!!**
+
+# 3.1-3
