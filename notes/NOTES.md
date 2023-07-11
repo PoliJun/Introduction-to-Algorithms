@@ -337,3 +337,16 @@ simplify to a geometric
 
 -   **Three cases:**
     ![three cases:](../pictures/master_theorem.png)
+
+## 5 Porbabilistic Analysis and Randomized Algorithms
+### 5.1 The hiring problem
+- **probilistic**:
+    - each `n!` has the equal probability
+- **randomized algorithms**
+    - algorithm *randomized*: if its behavior not only determined by its input but also by values produced by a *random-number generator*.
+### Indicator random variables
+![indicator random variables](../pictures/indicator_random_variables.png)
+###### Analysis of the hiring problem using indicator random variables
+**SKIPPED!!!!!!!!!!!**
+### 5.3 Randomized algorithms
+concept: *uniform random permutation*
