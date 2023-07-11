@@ -324,3 +324,9 @@ Obey the following properties:
 ###### A trick of the  trade: subtracting a low-order term
 ###### Avoid pitfalls
 Avoid using asymptotic notation in the inductive hypothesis for the substitution method because it's errror prone.
+
+### 4.4 the recursion-tree method for solving recurrences
+simplify to a geometric
+### 4.5 the master method for solving recurrences
+- **Three cases:**
+![three cases:](../pictures/master_theorem.png)
