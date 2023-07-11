@@ -283,19 +283,44 @@ Obey the following properties:
     2. For all `n>=n0`, termination is in a defined base case within a finite number of recursive invocations.
 -   Conventions for recurrences
     > **_Whenever a recurrence is stated without an explicit base case, we assume that the recurrence is algorithmic._**
-###### Divide-and-Conquer and Recurrences
-###### Solving recurrences
-- four methods:
-    ![four methods](../pictures/four_methods_to%20solve_recurrence.png)
-### 4.1 Multiplying square matrices
-- triple loop: 
-    - 1-4: row
-    - 2-4: column
-    - 3-4: add a polynomial
-    ![triple loop](../pictures/triply_loop.png)
-- divide-and-conquer
-    - base case: `n == 1`. `c11=c11+a11*b11`
-    - divide to n/2
-    - conquer: recurrences
-    ![divide-and-conquer](../pictures/divide_and_conquer_matrix.png)
 
+###### Divide-and-Conquer and Recurrences
+
+###### Solving recurrences
+
+-   four methods:
+    ![four methods](../pictures/four_methods_to%20solve_recurrence.png)
+
+### 4.1 Multiplying square matrices
+
+-   triple loop:
+    -   1-4: row
+    -   2-4: column
+    -   3-4: add a polynomial
+        ![triple loop](../pictures/triply_loop.png)
+-   divide-and-conquer
+    -   base case: `n == 1`. `c11=c11+a11*b11`
+    -   divide to n/2
+    -   conquer: recurrences
+        ![divide-and-conquer](../pictures/divide_and_conquer_matrix.png)
+
+### 4.2 Strassen's algorithm for matrix multiplication
+
+### 4.3 The substitution method for solving recurrences
+
+---
+
+...A bunch of prove details...
+
+---
+
+-   two steps:
+    1. Guess the form of the solution using symbolic constants.
+    2. Use mathematical induction to show that the solution works, and find the constants.
+
+###### Making a good guess
+- no general way
+- need experiences and creativity.
+###### A trick of the  trade: subtracting a low-order term
+###### Avoid pitfalls
+Avoid using asymptotic notation in the inductive hypothesis for the substitution method because it's errror prone.
