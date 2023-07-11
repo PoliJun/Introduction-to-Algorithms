@@ -319,14 +319,21 @@ Obey the following properties:
     2. Use mathematical induction to show that the solution works, and find the constants.
 
 ###### Making a good guess
-- no general way
-- need experiences and creativity.
-###### A trick of the  trade: subtracting a low-order term
+
+-   no general way
+-   need experiences and creativity.
+
+###### A trick of the trade: subtracting a low-order term
+
 ###### Avoid pitfalls
+
 Avoid using asymptotic notation in the inductive hypothesis for the substitution method because it's errror prone.
 
 ### 4.4 the recursion-tree method for solving recurrences
+
 simplify to a geometric
+
 ### 4.5 the master method for solving recurrences
-- **Three cases:**
-![three cases:](../pictures/master_theorem.png)
+
+-   **Three cases:**
+    ![three cases:](../pictures/master_theorem.png)
