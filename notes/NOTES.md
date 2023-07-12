@@ -406,7 +406,7 @@ probability needs mathematical tools.
 
 ---
 
-### Heaps
+### 6.1 Heaps
 
 -   concept of a heap
     -   _(binary) heap_ data structure
@@ -418,3 +418,82 @@ probability needs mathematical tools.
         > ![heap structure](../pictures/heap_structure.jpg)
     -   find parent, left child, and right child  
          ![find parent, left child, right child](../pictures/find_plr.jpg)
+    -   two kinds of heaps, satisfying a _heap-property_:
+        -   max-heaps
+            > in a _max-heap_, for every node other than the root: `A[PARENT(i)]>=A[i]`
+        -   min-heaps
+            > in a _min-heap_, for every node other than the root: `A[PARENT(i)]<=A[i]`
+    -   define the _height_ of a node: `Θ(log n)`.
+        > as for it's a complete binary tree.
+    -   some basic procedures:
+        -   The **MAX-HEAPIFY** procedure, which runs in O(lg n) time, is the key to maintaining the max-heap property.
+        -   The **BUILD-MAX-HEAP** procedure, which runs in linear time, produces a max-heap from an unordered input array.
+        -   The **HEAPSORT** procedure, which runs in O(n lg n) time, sorts an array in place.
+        -   The procedures **MAX-HEAP-INSERT, MAX-HEAP-EXTRACT-MAX, MAX-HEAP-INCREASE-KEY, and MAX-HEAP-MAXIMUM** allow the heap data structure to implement a priority queue. They run in O(lg n) time plus the time for mapping between objects being inserted into the priority queue and indices in the heap.
+
+### 6.2 Maintaining the heap proerty
+
+-   _heap-size_:
+-   figure MAX-HEAPIFY
+    ```
+        MAX-HEAPIFY(A, i)
+    1       l = LEFT(i)
+    2       r = RIGHT(i)
+    3       if l ≤ A.heap-size and A[l] > A[i]
+    4         largest = l
+    5       else largest = i
+    6       if r ≤ A.heap-size and A[r] > A[largest]
+    7         largest = r
+    8       if largest ≠ i
+    9         exchange A[i] with A[largest]
+    1         MAX-HEAPIFY(A, largest)
+    ```
+-   time complexity: `Ο(log n)`
+
+### 6.3 Building a heap
+
+-   the procedure:
+
+    > by calling max-heapify in a bottom-up manner
+
+    ```
+        BUILD-MAX-HEAP(A, n)
+    1       A.heap-size = n
+    2       for i = ⌊n/2⌋ downto 1
+    3           MAX-HEAPIFY(A, i)
+    ```
+
+-   time complexity: `Ο(n log n)`
+
+### The heapsort algorithm
+
+-   the procedure:
+
+    ```
+        HEAPSORT(A, n)
+    1       BUILD-MAX-HEAP(A, n)
+    2       for i = n downto 2
+    3           exchange A[1] with A[i]
+    4           A.heap-size = A.heap-size – 1
+    5           MAX-HEAPIFY(A, 1)
+    ```
+
+    ![heap sort procedure](../pictures/heap_sort_procedure.jpg)
+
+-   time complexity: `Ο(n log n)`
+
+### 6.5 Priority queues
+
+---
+
+**From youtube:**  
+[What is priority queue: ](https://youtu.be/wptevk0bshY)
+
+![priority queue](../pictures/priority_queue.jpg)
+When and where to use:  
+![when and where to use](../pictures/when_and_where.jpg)
+Complexity:  
+![complexity pq 1](../pictures/complexity_pq_1.jpg)
+![complexity pq 2](../pictures/complexity_pq_2.jpg)
+
+---
