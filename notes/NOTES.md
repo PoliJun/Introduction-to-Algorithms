@@ -339,14 +339,82 @@ simplify to a geometric
     ![three cases:](../pictures/master_theorem.png)
 
 ## 5 Porbabilistic Analysis and Randomized Algorithms
+
 ### 5.1 The hiring problem
-- **probilistic**:
-    - each `n!` has the equal probability
-- **randomized algorithms**
-    - algorithm *randomized*: if its behavior not only determined by its input but also by values produced by a *random-number generator*.
+
+-   **probilistic**:
+    -   each `n!` has the equal probability
+-   **randomized algorithms**
+    -   algorithm _randomized_: if its behavior not only determined by its input but also by values produced by a _random-number generator_.
+
 ### Indicator random variables
+
 ![indicator random variables](../pictures/indicator_random_variables.png)
+
 ###### Analysis of the hiring problem using indicator random variables
+
 **SKIPPED!!!!!!!!!!!**
+
 ### 5.3 Randomized algorithms
-concept: *uniform random permutation*
+
+concept: _uniform random permutation_
+
+# Part II Sorting and Order Statistics
+
+---
+
+###### **Introduction**
+
+This part presents several algorithms that solve the following _sorting problem_:
+![sorting problem](../pictures/sorting_problem.jpg)
+
+###### The structure of data
+
+-   _record_
+-   _key_
+-   _satellite data_
+    ![structure](../pictures/record_key_satellite_data.jpg)
+
+###### Why sorting?
+
+![why sorting](../pictures/why_sorting.jpg)
+
+###### Soring algorithms
+
+-   _in place_:
+    -   insertion sort sorts _in place_.
+    -   merge sort, the procedure does not operate in place.
+-   sorting algorithms analysis table:
+    ![sort table](../pictures/sort_ana_table.jpg)
+
+###### Order statistics
+
+###### Background
+
+probability needs mathematical tools.
+
+---
+
+## Heapsort
+
+---
+
+-   running time: Ο(n log n)
+-   sorts in place
+-   a data structure: _heap_
+-   ***here, the term of *heap* does not refer to the storage class, it's a data structure.***
+
+---
+
+### Heaps
+
+-   concept of a heap
+    -   _(binary) heap_ data structure
+    -   is an array object
+    -   that we can view as a nearly complete binary tree.
+    -   each node of the tree corresponds to an element of the array.
+    -   PARENT,LEFT,RIGHT
+        > The root of the tree is A[1], and given the index i of a node, there’s a simple way to compute the indices of its parent, left child, and right child with the one-line procedures PARENT, LEFT, and RIGHT.
+        > ![heap structure](../pictures/heap_structure.jpg)
+    -   find parent, left child, and right child  
+         ![find parent, left child, right child](../pictures/find_plr.jpg)
