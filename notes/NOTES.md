@@ -577,9 +577,51 @@ It depends on how balanced the pivot.
 -   `T (n) = T (9n/10) + T (n/10) + Θ(n)`
 -   `Ο(n lg n)`
     > ![balance case](../pictures/quicksort_balance_case.jpg)
+
 ###### Intuition for the average case
+
 ![quicksort intuition](../pictures/quicksort_intuition.jpg)
+
 ### 7.3 A randomized version of quicksort
+
 ![randomized quicksort](../pictures/randomized_quicksort.jpg)
+
 ### 7.4 Analysis of quicksort
-***TOO PROFESSIONAL, JUST SKIPPED!!!!!!!***
+
+**_TOO PROFESSIONAL, JUST SKIPPED!!!!!!!_**
+
+## 8 Sorting in Linear Time
+
+---
+
+_comparison sorts_:  
+These algorithms share an interesting property: the sorted order they determine is based only on comparisons between the input elements. We call such sorting algorithms comparison sorts. All the sorting algorithms introduced thus far are comparison sorts.
+
+**_Any comparison sort must make `Ω(n lg n)` comparisons in the worst case to sort `n` elements._**
+
+---
+
+### 8.1 Lower bounds for sorting
+
+**_ASSUME WITHOUT LOSS OF GENERALITY IN THIS SECTION THAT ALL THE INPUT ELEMENTS ARE DISTINCT._**
+
+###### The _dicision-tree_ model
+
+-   the concept of _dicision-tree_:
+    -   is a full binary tree
+        > ![decision-tree](../pictures/decision_tree.jpg)
+
+###### A lower bound for the worst case
+
+-   the height of its decision tree  
+    > Consequently, the worst-case number of comparisons for a given comparison sort algorithm equals the height of its decision tree.
+- proof:
+    > ![proof Ω(n log n)](../pictures/proof_lower_bound_nlogn.jpg)
+### 8.2 Counting sort
+---
+*Counting sort* assumes that each of the `n` input elements is an integer in the range `0` to `k`, for some integer `k`. It runs in `Θ(n + k)` time, so that when `k = O(n)`, counting sort runs in `Θ(n)` time.
+
+***From YouTube:***
+![counting sort properties](../pictures/counting_sort_properties.jpg)
+![counting sort](../videos/counting_sort.mp4)
+---
