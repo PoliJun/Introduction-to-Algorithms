@@ -613,15 +613,19 @@ These algorithms share an interesting property: the sorted order they determine 
 
 ###### A lower bound for the worst case
 
--   the height of its decision tree  
+-   the height of its decision tree
     > Consequently, the worst-case number of comparisons for a given comparison sort algorithm equals the height of its decision tree.
-- proof:
+-   proof:
     > ![proof Ω(n log n)](../pictures/proof_lower_bound_nlogn.jpg)
-### 8.2 Counting sort
----
-*Counting sort* assumes that each of the `n` input elements is an integer in the range `0` to `k`, for some integer `k`. It runs in `Θ(n + k)` time, so that when `k = O(n)`, counting sort runs in `Θ(n)` time.
 
-***From YouTube:***
+### 8.2 Counting sort
+
+---
+
+_Counting sort_ assumes that each of the `n` input elements is an integer in the range `0` to `k`, for some integer `k`. It runs in `Θ(n + k)` time, so that when `k = O(n)`, counting sort runs in `Θ(n)` time.
+
+**_From YouTube:_**
 ![counting sort properties](../pictures/counting_sort_properties.jpg)
-![counting sort](../videos/counting_sort.mp4)
+**Video**: [counting sort](https://youtu.be/OKd534EWcdk)
+
 ---
