@@ -577,3 +577,9 @@ It depends on how balanced the pivot.
 -   `T (n) = T (9n/10) + T (n/10) + Θ(n)`
 -   `Ο(n lg n)`
     > ![balance case](../pictures/quicksort_balance_case.jpg)
+###### Intuition for the average case
+![quicksort intuition](../pictures/quicksort_intuition.jpg)
+### 7.3 A randomized version of quicksort
+![randomized quicksort](../pictures/randomized_quicksort.jpg)
+### 7.4 Analysis of quicksort
+***TOO PROFESSIONAL, JUST SKIPPED!!!!!!!***
