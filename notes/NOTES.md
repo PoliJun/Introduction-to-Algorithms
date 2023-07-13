@@ -497,3 +497,52 @@ Complexity:
 ![complexity pq 2](../pictures/complexity_pq_2.jpg)
 
 ---
+
+-   max-priority queues and min-priority queues.
+    > to implement max-priority queues in this book.
+-   operations:
+
+    -   INSERT(S, x, k) inserts the element x with key k into the set S, which is equivalent to the operation S = S ⋃ {x}.
+        > `Ο(log n)`
+    -   MAXIMUM(S) returns the element of S with the largest key.
+        > `Ο(1)`
+    -   EXTRACT-MAX(S) removes and returns the element of S with the largest key.
+        > `Ο(log n)`
+    -   INCREASE-KEY(S, x, k) increases the value of element x’s key to the new value k, which is assumed to be at least as large as x’s current key value.
+        > `Ο(log n)`
+
+-   uses:
+    -   Among their other applications, you can use max-priority queues to schedule jobs on a computer shared among multiple users.
+    -   A min-priority queue can be used in an event-driven simulator.
+-   methods to add application objects to the priority queue:
+    -   handles, a hidden index.
+    -   hashtable
+-   Algorithms,pseudocodes:
+    ![operations](../pictures/priority_queue_operation1.jpg)  
+    ![operations](../pictures/priority_queue_operation2.jpg)
+
+## Quicksort
+
+---
+
+-   worst-case `Θ(n^2)`
+-   but remarkably efficient on average: excepted running time is `Θ(n lg n)`.
+-   sorting in place
+
+---
+
+### 7.1 Description of quicksort
+
+-   three steps:
+    -   **Divide** by partitioning (rearranging) the array A[p : r] into two (possibly empty) subarrays A[p : q – 1] (the low side) and A[q + 1 : r] (the high side) such that each element in the low side of the partition is less than or equal to the pivot A[q], which is, in turn, less than or equal to each element in the high side. Compute the index q of the pivot as part of this partitioning procedure.
+    -   **Conquer** by calling quicksort recursively to sort each of the subarrays A[p : q – 1] and A[q + 1 : r].
+    -   **Combine** by doing nothing: because the two subarrays are already sorted, no work is needed to combine them. All elements in A[p : q – 1] are sorted and less than or equal to A[q], and all elements in A[q + 1 : r] are sorted and greater than or equal to the pivot A[q]. The entire subarray A[p : r] cannot help but be sorted!
+-   pseudocode:
+    > **input**: array A[1:n], initial call QUICKSORT(A,1,n)  
+    > **output**: sorted A
+    > ![quicksort_pseudocode](../pictures/quick_sort_7_1.jpg)
+
+###### Partitioning the array
+
+-   pseudocode:
+    > ![partition_pseudocode](../pictures/partition_algorithems.jpg)
