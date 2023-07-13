@@ -546,3 +546,34 @@ Complexity:
 
 -   pseudocode:
     > ![partition_pseudocode](../pictures/partition_algorithems.jpg)
+-   initialization, maintenance, termination of the loop
+    -   **initialization**: `i=p-1` and `j=p`.
+    -   **maintenance**: if `A[j] > x`, then increment `j` but i, else if `A[j] <= x`, increment `i`, swaps `A[j]` and `A[i]`, and then increment `j`.
+    -   **termination**: `j > r-1`.
+
+### 7.2 Performance of quicksort
+
+---
+
+It depends on how balanced the pivot.
+
+---
+
+###### Worst-case partitioning
+
+-   **occurs** when the partitioning produces one subproblem with `n-1` elements and one with 0 elements.
+-   `T(n) = T(n-1) + T(0) + Θ(n) = T(n-1) + Θ(n)`.
+-   `Θ(n^2)`. which case that is always sorted.
+
+###### Best-case partitioning
+
+-   **in the most even possible split**, **PARTITION** produces two subproblems, each of size no more than `n/2`.
+-   `T(n) = 2T(n/2) + Θn`.
+-   `Θ(n lg n)`
+
+###### Balanced partitioning
+
+-   always produces a `9-to-1` proportional split.
+-   `T (n) = T (9n/10) + T (n/10) + Θ(n)`
+-   `Ο(n lg n)`
+    > ![balance case](../pictures/quicksort_balance_case.jpg)
