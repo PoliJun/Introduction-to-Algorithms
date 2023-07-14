@@ -722,3 +722,45 @@ Video: [Bucket sort](https://youtu.be/VuXbEb5ywrU)
 -   pseudocode
     > ![Bucket sort](../pictures/bucket_sort.jpg)  
     > ![Bucket sort pseudocode](../pictures/bucket_sort_pseudocode.jpg)
+
+## 9 Medians and Order Statistics
+
+---
+
+Intro
+
+> ![intro](../pictures/intro_9.jpg)
+
+---
+
+### 9.1 Minimum and maximum
+
+-   The Minimum procedure
+    > array A[1:n]  
+    > **psedocode**:  
+    > ![minimum Ο(n)](../pictures/minimum_on.jpg)
+
+###### Simutaneous minimum and maximum
+
+If n is even, 1 initial comparison occurs, followed by another `3(n – 2)/2` comparisons, for a total of `3n/2 – 2`. Thus, in either case, the total number of comparisons is at most `3 ⌊n/2⌋`.
+
+### 9.2 Selection in expected linear time
+
+-   pseudocode
+    > ![random_selection_pseudocode](../pictures/random_select_pseudocode.jpg)
+-   figure
+    > ![figure_random_selection_pseudocode](../pictures/figure_random_select.jpg)
+
+- ###### Lemma 9.1
+    - A partitioning is helpful with probablility at least `1/2`.
+    - proof:  
+        > ![lemma 9.1](../pictures/lemma_9_1.jpg)
+- ###### Theorem 9.2
+    - The procedure Randomized-select on an input array of n distinct elements has an expected running time of `Θ(n)`.
+    - proof:  
+        > ![theorem 9.2](../pictures/theorem_9_2(1).jpg)  
+        > ![theorem 9.2](../pictures/heorem_9_2(2).jpg)  
+        > ![](../pictures/heorem_9_2(3).jpg)  
+        > ![theorem 9.2](../pictures/heorem_9_2(4).jpg)  
+
+
