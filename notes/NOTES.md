@@ -629,3 +629,22 @@ _Counting sort_ assumes that each of the `n` input elements is an integer in the
 **Video**: [counting sort](https://youtu.be/OKd534EWcdk)
 
 ---
+
+-   COUNTING-SORT pseudocode:
+    > ```
+    > COUNTING-SORT(A,n,k)
+    >     create new B[1:n] and C[0:k]
+    >     for i=0 to k
+    >         C[i] = 0
+    >     for j=1 to n
+    >         C[A[j]]  = C[A[j]] + 1
+    >     for i=1 to k
+    >         C[i] = C[i] + C[i-1]
+    >     for j=n down to 1
+    >         B[C[A[j]]] = A[j]
+    >         C[A[j]] = C[A[j]] - 1
+    >     return B
+    > ```
+    >
+    > The COUNTING-SORT procedure on the facing page takes as input an array A[1 : n], the size n of this array, and the limit k on the nonnegative integer values in A. It returns its sorted output in the array B[1 : n] and uses an array C [0 : k] for temporary working storage.
+    > ![counting sort pseudo](../pictures/counting_sort_pseudocode.png) > ![counting sort](../pictures/counting_sort.jpg)
