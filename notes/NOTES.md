@@ -615,7 +615,8 @@ These algorithms share an interesting property: the sorted order they determine 
 
 -   the height of its decision tree
     > Consequently, the worst-case number of comparisons for a given comparison sort algorithm equals the height of its decision tree.
--   proof:
+-   ###### Theorem 8.1
+    ###### Corollary 8.2
     > ![proof Ω(n log n)](../pictures/proof_lower_bound_nlogn.jpg)
 
 ### 8.2 Counting sort
@@ -648,3 +649,76 @@ _Counting sort_ assumes that each of the `n` input elements is an integer in the
     >
     > The COUNTING-SORT procedure on the facing page takes as input an array A[1 : n], the size n of this array, and the limit k on the nonnegative integer values in A. It returns its sorted output in the array B[1 : n] and uses an array C [0 : k] for temporary working storage.
     > ![counting sort pseudo](../pictures/counting_sort_pseudocode.png) > ![counting sort](../pictures/counting_sort.jpg)
+
+### 8.3 Radix sort
+
+---
+
+**EXTERNAL RESOURCES:**  
+_counting sort_ is a _stable sort_:
+
+> A stable sort algorithm is a sorting algorithm that **preserves the relative order of equal elements** in the input data set¹². For example, if you have a list of names and ages, and you sort them by age, a stable sort algorithm will keep the original order of names with the same age. An unstable sort algorithm may change the order of names with the same age.
+>
+> Stable sorting algorithms are useful when you have **distinguishable elements** with **multiple attributes** that you want to sort by²³. For example, if you want to sort a list of words by their frequency and then by their alphabetical order, you can use a stable sort algorithm to preserve the lexicographical order after sorting by frequency.
+>
+> Some examples of stable sorting algorithms are **bubble sort, insertion sort, merge sort, and counting sort**¹². Some examples of unstable sorting algorithms are **quick sort, heap sort, and selection sort**¹². Some unstable sorting algorithms can be modified to be stable by taking into account the position of the elements in the input data set¹⁴.
+>
+> Source: Conversation with Bing, 7/14/2023
+> (1) Stable and Unstable Sorting Algorithms - GeeksforGeeks. https://www.geeksforgeeks.org/stable-and-unstable-sorting-algorithms/.
+> (2) Stable Sorting Algorithms | Baeldung on Computer Science. https://www.baeldung.com/cs/stable-sorting-algorithms.
+> (3) Sorting algorithm - Wikipedia. https://en.wikipedia.org/wiki/Sorting_algorithm.
+> (4) Stability in Sorting Algorithms — A Treatment of Equality. https://www.freecodecamp.org/news/stability-in-sorting-algorithms-a-treatment-of-equality-fa3140a5a539/.
+
+**From youtube:**
+**IT'S IMPORTANT TO USE A _STABLE SORT_ AS THE SUBROUTINE OF RADIX SORT**, which is that counting sort is a stable sort.
+![radix sort](../pictures/radix_sort.png)
+Video: [radix sort](https://youtu.be/XiuSW_mEn7g)
+
+---
+
+-   the concept of _Radix sort_
+    -   used by the card-sorting machines
+    -   you now find only in computer museums.
+-   pseudocode:
+
+    > ![radix sort pseudocode](../pictures/radix_sort_pseudocode.jpg)
+
+-   ###### Lemma 8.3
+
+> **Lemma 8.3**  
+> Given n d-digit numbers in which each digit can take on up to k possible values, RADIX-SORT correctly sorts these numbers in Θ(d(n + k)) time if the stable sort it uses takes Θ(n + k) time.  
+> **Proof**  
+> The correctness of radix sort follows by induction on the column being sorted (see Exercise 8.3-3). The analysis of the running time depends on the stable sort used as the intermediate sorting algorithm.
+> When each digit lies in the range 0 to k – 1 (so that it can take on k possible values), and k is not too large, counting sort is the obvious choice. Each pass over n d-digit numbers then takes Θ(n + k) time.
+> There are d passes, and so the total time for radix sort is Θ(d(n + k)).
+
+-   ###### Lemma 8.4
+
+> **Lemma 8.4**  
+> Given n b-bit numbers and any positive integer r ≤ b, RADIX-SORT correctly sorts these numbers in Θ((b/r)(n + 2r)) time if the stable sort it uses takes Θ(n + k) time for inputs in the range 0 to k.  
+> **Proof**  
+> For a value r ≤ b, view each key as having d = ⌈b/r⌉ digits of r bits each. Each digit is an integer in the range 0 to 2r – 1, so that we can use counting sort with k = 2r – 1. (For example, we can view a 32-bit word as having four 8-bit digits, so that b = 32, r = 8, k = 2r – 1 = 255, and d = b/r = 4.) Each pass of counting sort takes Θ(n + k) = Θ(n + 2r) time and there are d passes, for a total running time of Θ(d(n + 2r)) = Θ((b/r) (n + 2r)).
+> ▪
+
+-   Is radix sort preferable to a comparison-based sorting algorithm, such as quicksort?
+
+    > If b = O(lg n), as is often the case, and r ≈ lg n, then radix sort’s running time is Θ(n), which appears to be better than quicksort’s expected running time of Θ(n lg n).
+
+-   does not sort in place with counting sort
+    > the version of radix sort that uses counting sort as the intermediate stable sort does not sort in place
+
+### 8.4 Bucket sort
+
+---
+
+**From YouTube:**
+Video: [Bucket sort](https://youtu.be/VuXbEb5ywrU)
+
+---
+
+-   the concept of a _bucket sort_
+    -   the input is drawn from a uniform distribution
+    -   and has an average-case running time of `Ο(n)`.
+-   pseudocode
+    > ![Bucket sort](../pictures/bucket_sort.jpg)  
+    > ![Bucket sort pseudocode](../pictures/bucket_sort_pseudocode.jpg)
