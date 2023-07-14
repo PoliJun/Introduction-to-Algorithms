@@ -749,18 +749,82 @@ If n is even, 1 initial comparison occurs, followed by another `3(n – 2)/2` co
 -   pseudocode
     > ![random_selection_pseudocode](../pictures/random_select_pseudocode.jpg)
 -   figure
+
     > ![figure_random_selection_pseudocode](../pictures/figure_random_select.jpg)
 
-- ###### Lemma 9.1
-    - A partitioning is helpful with probablility at least `1/2`.
-    - proof:  
+-   ###### Lemma 9.1
+    -   A partitioning is helpful with probablility at least `1/2`.
+    -   proof:
         > ![lemma 9.1](../pictures/lemma_9_1.jpg)
-- ###### Theorem 9.2
-    - The procedure Randomized-select on an input array of n distinct elements has an expected running time of `Θ(n)`.
-    - proof:  
-        > ![theorem 9.2](../pictures/theorem_9_2(1).jpg)  
-        > ![theorem 9.2](../pictures/heorem_9_2(2).jpg)  
-        > ![](../pictures/heorem_9_2(3).jpg)  
-        > ![theorem 9.2](../pictures/heorem_9_2(4).jpg)  
+-   ###### Theorem 9.2
+    -   The procedure Randomized-select on an input array of n distinct elements has an expected running time of `Θ(n)`.
+    -   proof:
+        > ![theorem 9.2](<../pictures/theorem_9_2(1).jpg>)  
+        > ![theorem 9.2](<../pictures/heorem_9_2(2).jpg>)  
+        > ![](<../pictures/heorem_9_2(3).jpg>)  
+        > ![theorem 9.2](<../pictures/heorem_9_2(4).jpg>)
 
+### 9.3 Selection in worst-case linear time
 
+---
+
+From YouTube:
+Video: [worst-case linear time](https://youtu.be/XMSvY5Sk4zk)
+
+---
+
+-   ###### Theorem 9.3
+    > The running time of **SELECT** on an input of `n` element is `Θ(n)`.
+
+# Part III Data Structures
+
+---
+
+## Introduction
+
+-   sets that is _dynamic_
+    > Sets that can grow, shrink, or therwise change over time.
+-   _dictionary_
+    > Algorithms may require several types of operations to be performed
+    > on sets. For example, many algorithms need only the ability to insert
+    > elements into, delete elements from, and test membership in a set. We
+    > call a dynamic set that supports these operations a _dictionary_.
+
+###### Elements of a dynamic set
+
+-   typically, each element is represented by an object whose attributes can be examined and manipulated given a pointer to the object.
+-   _key_
+-   _satellite data_
+
+###### Operations on dynamic sets
+
+-   two categories
+    -   _queries_
+    -   _modifying operations_
+-   operations:
+    -   SEARCH(S, k)
+        > A query that, given a set S and a key value k, returns a pointer x to
+        > an element in S such that x.key = k, or NIL if no such element
+        > belongs to S.
+    -   INSERT(S, x)
+        > A modifying operation that adds the element pointed to by x to the
+        > set S. We usually assume that any attributes in element x needed by
+        > the set implementation have already been initialized.
+    -   DELETE(S, x)
+        > A modifying operation that, given a pointer x to an element in the
+        > set S, removes x from S. (Note that this operation takes a pointer to
+        > an element x, not a key value.)
+    -   MINIMUM(S) and MAXIMUM(S)
+        > Queries on a totally ordered set S that return a pointer to the
+        > element of S with the smallest (for MINIMUM) or largest (for
+        > MAXIMUM) key.
+    -   SUCCESSOR(S, x)
+        > A query that, given an element x whose key is from a totally ordered
+        > set S, returns a pointer to the next larger element in S, or NIL if x is
+        > the maximum element.
+    -   PREDECESSOR(S, x)
+        > A query that, given an element x whose key is from a totally ordered
+        > set S, returns a pointer to the next smaller element in S, or NIL if x
+        > is the minimum element.
+
+---
