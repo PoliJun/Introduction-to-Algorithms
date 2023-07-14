@@ -828,3 +828,77 @@ Video: [worst-case linear time](https://youtu.be/XMSvY5Sk4zk)
         > is the minimum element.
 
 ---
+
+## 10 Elementry Data Structures
+
+data structures that using pointers. Only rudimentary ones:
+
+-   arrays
+-   matrices
+-   stacks
+-   queues
+-   linked lists
+-   rooted trees
+
+### 10.1 Simple array-based data structures: arrays, matrices, stacks, queues
+
+#### 10.1.1 Arrays
+
+-   the concept of arrays
+    > We assume that, as in most programming languages, an array is stored
+    > as a contiguous sequence of bytes in memory
+-   pointers' bytes the same
+    > The number of bytes occupied by a
+    > pointer is typically the same, no matter what the pointer references, so
+    > that to access an object in an array, the above formulas give the address
+    > of the pointer to the object and then the pointer must be followed to
+    > access the object itself.
+-   four ways to store the `2 x 3` matrix M.
+    > ![four ways of matrix](../pictures/four_ways_of_matrix.png)
+
+#### 10.1.2 Matrices
+
+-   two most common ways to store a matrix.
+
+    -   _row-major order_
+    -   _column-major order_
+
+    > ![matrix_store](../pictures/2_x_3_matrix.png)
+
+-   _block representation_
+    > ![Alt text](../pictures/matrix_block_representation.png)
+
+#### 10.1.3 Stacks and queues
+
+-   _stack_
+    > LIFO
+-   _queue_
+    > FIFO
+
+###### **Stacks**
+
+-   operations:
+    -   INSERT
+        > called `PUSH`
+    -   DELETE
+        > called `POP`
+-   attributes:
+    -   S.top
+        > indexing the most recently inserted element
+    -   S.size
+        > equaling the size `n` of the array
+-   **figure 10.2**
+    > ![figure 10.2](../pictures/figure_10_2.png)
+-   STACK-EMPTY to check if the stack is empty
+    -   _underflow_
+        > to pop an empty stack, the stack underflows
+    -   _overflow_
+        > if S.top exceeds S.size, the stack overflows
+    -   three operations takes `Ο(1)`:
+        > The procedures `STACK-EMPTY`, `PUSH`, and `POP` implement each
+        > of the stack operations with just a few lines of code. Figure 10.2 shows
+        > the effects of the modifying operations `PUSH` and `POP`. Each of the
+        > three stack operations takes `O(1)` time.
+        > ![stack_operations_pseudocode](../pictures/stack_operations_pseudocode.png)
+###### **Queues**
+![figure_10_3](../pictures/figure_10_3.png)
