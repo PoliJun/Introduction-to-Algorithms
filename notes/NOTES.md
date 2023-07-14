@@ -804,7 +804,7 @@ Video: [worst-case linear time](https://youtu.be/XMSvY5Sk4zk)
 -   operations:
     -   SEARCH(S, k)
         > A query that, given a set S and a key value k, returns a pointer x to
-        > an element in S such that x.key = k, or NIL if no such element
+        > an element in S such that x.key = k, or `NIL` if no such element
         > belongs to S.
     -   INSERT(S, x)
         > A modifying operation that adds the element pointed to by x to the
@@ -820,11 +820,11 @@ Video: [worst-case linear time](https://youtu.be/XMSvY5Sk4zk)
         > MAXIMUM) key.
     -   SUCCESSOR(S, x)
         > A query that, given an element x whose key is from a totally ordered
-        > set S, returns a pointer to the next larger element in S, or NIL if x is
+        > set S, returns a pointer to the next larger element in S, or `NIL` if x is
         > the maximum element.
     -   PREDECESSOR(S, x)
         > A query that, given an element x whose key is from a totally ordered
-        > set S, returns a pointer to the next smaller element in S, or NIL if x
+        > set S, returns a pointer to the next smaller element in S, or `NIL` if x
         > is the minimum element.
 
 ---
@@ -900,5 +900,103 @@ data structures that using pointers. Only rudimentary ones:
         > the effects of the modifying operations `PUSH` and `POP`. Each of the
         > three stack operations takes `O(1)` time.
         > ![stack_operations_pseudocode](../pictures/stack_operations_pseudocode.png)
+
 ###### **Queues**
+
 ![figure_10_3](../pictures/figure_10_3.png)
+
+-   oprations:
+    -   INSERT
+        > `ENQUEUE`
+    -   DELETE
+        > `DEQUEUE`
+-   attributes:
+    -   `Q.head`
+    -   `Q.tail`
+    -   `Q.size`
+-   procedures takes `Ο(1)`:
+    > ![queue_procedure](../pictures/queue_procedure.png)
+
+### 10.2 Linked lists
+
+-   the concept of linked lists
+    -   objects
+    -   arranged in a linear order
+    -   the order is determined by a _pointer_ in each object. Not be like arrays ordered by index.
+    -   often contains _keys_
+        > sometimes called _search lists_
+-   figure _doubly linked list_
+    > ![figure_doubly_linked_list](../pictures/figure_doubly_linked_list.png)
+    -   `x.next`, `x.prev` and `NIL`
+        > As shown in Figure 10.4, each element of a doubly linked list L is an
+        > object with an attribute key and two pointer attributes: next and prev.
+        > The object may also contain other satellite data. Given an element x in
+        > the list, `x.next` points to its successor in the linked list, and `x.prev` points
+        > to its predecessor. If `x.prev` = `NIL`, the element x has no predecessor
+        > and is therefore the first element, or head, of the list. If `x.next` = `NIL`,
+        > the element x has no successor and is therefore the last element, or tail,
+        > of the list. An attribute L.head points to the first element of the list. If
+        > L.head = `NIL`, the list is empty.
+-   A list have one of **several forms**
+    -   _singly linked_ or _doubly linked_
+    -   _sorted_ or _not sorted_
+        > If a list is sorted, the linear order of the list corresponds to the
+        > linear order of keys stored in elements of the list. The minimum element
+        > is then the head of the list, and the maximum element is the tail. If the
+        > list is unsorted, the elements can appear in any order.
+    -   _circular list_
+        > In a circular list,
+        > the prev pointer of the head of the list points to the tail, and the next
+        > pointer of the tail of the list points to the head
+
+###### Searching a linked list
+
+-   procedure LIST-SEARCH(L, k)
+    -   finds the first element with key `k` in list `L` by a simple linear search,
+    -   returning a _pointer_ to this element.
+    -   takes `Θ(n)`
+        > ![figure_list_search](../pictures/figure_list_search.png)
+
+###### Inserting into a linked list
+
+_splices_
+
+-   procedure LIST-PREPEND(L, k)
+    -   add x to the front of the linked list
+    -   running time: `Ο(1)`
+        > ![procedure_list-prepend](../pictures/procedure_list-prepend.png)
+-   procedure LIST-INSERT(x,y)
+    -   add x to anywhere in the linked list
+    -   running time: `Ο(1)`
+        > You can insert anywhere within a linked list. As Figure 10.4(c)
+        > shows, if you have a pointer y to an object in the list, the LIST-INSERT
+        > procedure on the facing page “splices” a new element x into the list,
+        > immediately following y, in O(1) time. Since LIST-INSERT never
+        > references the list object L, it is not supplied as a parameter
+        > ![procedure_list_insert](../pictures/procedure_list_insert.png)
+
+###### Deleting from a linked list
+
+_splices_
+
+-   procedure LIST-DELETE(L,x)
+    -   removes an element from a linked list `L`.
+    -   must be given a pointer to `x`
+    -   spices `x` out of the list by updating pointers.
+    -   running time: `Ο(1)`. but to delete an element with a given key, the call to list-search makes the worst-case running time be `Θ(n)`.
+        > ![procedure_list-delete](../pictures/procedure_list-delete.png)
+
+###### Sentinels
+
+> ![figure_sentinels](../pictures/figure_sentinels.png)
+
+-   the concept of a _sentinel_
+    -   is a dummy object
+    -   that allows us to simplify boundary conditions.
+-   procedures
+    -   list-delete
+        > ![list_delete_sentinels](../pictures/list_delete_sentinels.png)
+    -   list-insert
+        > ![list_insert_sentinels](../pictures/list_insert_sentinels.png)
+    -   list-search
+        > ![list_search_sentinels](../pictures/list_search_sentinels.png)
