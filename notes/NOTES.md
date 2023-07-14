@@ -1000,3 +1000,49 @@ _splices_
         > ![list_insert_sentinels](../pictures/list_insert_sentinels.png)
     -   list-search
         > ![list_search_sentinels](../pictures/list_search_sentinels.png)
+
+### 10.3 Representing rooted trees
+
+---
+
+-   key.
+-   pointers, _vary according to the type of tree._
+
+---
+
+###### Binary trees
+
+> ![figure_binary_tree](../pictures/figure_binary_tree.png)
+
+-   attributes:
+    -   `p`
+        > pointers to the parent
+    -   `left`
+        > left child
+    -   `right` > right child
+        > If `x.p = NIL`, then `x` is the root. If node `x` has no left
+        > child, then `x.left = NIL`, and similarly for the right child. The root of
+        > the entire tree `T` is pointed to by the attribute `T.root`. If `T.root = NIL`,
+        > then the tree is empty.
+
+###### Rooted trees with unbounded branching
+
+> ![rooted_trees_with_unbounded_branching](../pictures/rooted_trees_with_unbounded_branching.png)
+
+-   attributes:
+    -   p
+    -   left-child
+    -   right-sibling
+        > If node `x` has no children, then `x.left-child = NIL`, and if node `x` is the
+        > rightmost child of its parent, then `x.right-sibling = NIL`.
+
+###### Other tree representations
+
+> We sometimes represent rooted trees in other ways. In Chapter 6, for
+> example, we represented a _heap_, which is based on a complete binary
+> tree, by a single array along with an attribute giving the index of the last
+> node in the _heap_. The trees that appear in Chapter 19 are traversed only
+> toward the root, and so only the parent pointers are present: there are
+> no pointers to children. Many other schemes are possible. **Which scheme is best depends on the application.**
+
+## 11 Hash Tables
