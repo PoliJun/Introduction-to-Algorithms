@@ -1073,27 +1073,125 @@ _splices_
     -   _collision_
         > There is one hitch, namely that two keys may hash to the same slot.
         > We call this situation a collision.
-        - figure collision:
+        -   figure collision:
             > ![figure_collision](../pictures/figure_collision.png)
-    - to be random
+    -   to be random
         > make h appear to be “random,” thus avoiding collisions
         > or at least minimizing their number. The very term “to hash,” evoking
         > images of random mixing and chopping, captures the spirit of this
         > approach. (Of course, a hash function h must be deterministic in that a
         > given input k must always produce the same output h(k).)
+
 ###### Independent uniform hashing
-- the concept of *independent uniform hash function* 
-    - An "ideal" hashing function `h`
-    - for each possible input k in the domain `U`,
-    - an output `h(k)` that is an element randomly and independently 
-    - chosen uniformly from the range `{0,1,2,...,m-1}`.
-    - Once `h(k)` , each same input `k` yields the same output `h(k)`.
-    > often called a *random oracle*. A statement of "using *independent uniform hashing*".
+
+-   the concept of _independent uniform hash function_
+    -   An "ideal" hashing function `h`
+    -   for each possible input k in the domain `U`,
+    -   an output `h(k)` that is an element randomly and independently
+    -   chosen uniformly from the range `{0,1,2,...,m-1}`.
+    -   Once `h(k)` , each same input `k` yields the same output `h(k)`.
+        > often called a _random oracle_. A statement of "using _independent uniform hashing_".
+
 ###### Collision resolution by chaining
-- figure of Collision resolution by chaining:
-    > ![figure_collision_chaining](../pictures/figure_collision_chaining.png)  
-- procedure
-    > ![procedure_chained_hash](../pictures/procedure_chained_hash.png)   
+
+-   figure of Collision resolution by chaining:
+    > ![figure_collision_chaining](../pictures/figure_collision_chaining.png)
+-   procedure
+    > ![procedure_chained_hash](../pictures/procedure_chained_hash.png)
+
 ###### Analysis of hashing with chaining
-- *load factor*:
-- hash function is *uniform*
+
+-   _load factor_ `α`:
+    > Given a hash table `T` with `m` slots that stores `n` elements, we define
+    > the load factor `α` for `T` as `n/m`, that is, the average number of elements
+    > stored in a chain. Our analysis will be in terms of `α`, which can be less
+    > than, equal to, or greater than `1`.
+-   hash function is _uniform_
+
+###### Theorem 11.1
+
+> **Theorem 11.1**  
+> In a hash table in which collisions are resolved by chaining, an
+> unsuccessful search takes Θ(1 + α) time on average, under the
+> assumption of independent uniform hashing.
+>
+> **Proof** Under the assumption of independent uniform hashing, any key
+> k not already stored in the table is equally likely to hash to any of the m
+> slots. The expected time to search unsuccessfully for a key k is the
+> expected time to search to the end of list T[h(k)], which has expected
+> length E[nh(k)] = α. Thus, the expected number of elements examined in
+> an unsuccessful search is α, and the total time required (including the
+> time for computing h(k)) is Θ(1 + α).
+> ▪
+
+###### Theorem 11.2
+
+> **Theorem 11.2**  
+> In a hash table in which collisions are resolved by chaining, a successful
+> search takes Θ(1 + α) time on average, under the assumption of
+> independent uniform hashing.
+> **_PROOF IS TO LONG_**
+
+### 11.3 Hash functions
+
+-   two adhoc approaches in this section:
+
+    -   hashing by division
+    -   hashing by multiplication
+
+    > They are limited because they try to provide a single fixed hash function that works well on any data -- an approach called _static hashing_
+
+###### What makes a good hash function?
+
+A good hash function statisfies (approximately) the assumption of independent uniform hashing:
+
+-   each key is equally likely to hash to any of the m slots
+-   independently of where any other keys have hashed to.
+
+###### Keys are integers, vectors, or strings
+
+> In practice, a hash function is designed to handle keys that are one of
+> the following two types:
+>
+> -   A short nonnegative integer that fits in a `w`-bit machine word.
+>     Typical values for `w` would be 32 or 64.
+> -   A short vector of nonnegative integers, each of bounded size. For
+>     example, each element might be an 8-bit byte, in which case the
+>     vector is often called a (byte) string. The vector might be of
+>     variable length.
+
+#### 13.1.1 Static hashing
+
+-   the concept of \*static hashing
+    -   using a
+    -   single
+    -   fixed
+    -   function
+-   two standard approaches:
+    -   multiplication
+    -   division
+-   is no longer recommended now.
+
+###### The division method
+
+-   concept
+    > The division method for creating hash functions maps a key `k` into one of
+    > `m` slots by taking the remainder of `k` divided by `m`. That is, the hash
+    > function is
+    > `h(k) = k mod m`.
+-   limitation:
+    > The division method may work well when m is a prime not too close
+    > to an exact power of 2. There is no guarantee that this method provides
+    > good average-case performance, however, and it may complicate
+    > applications since it constrains the size of the hash tables to be prime.
+
+###### The multiplication method
+
+The general multiplication method for creating hash functions operates
+in two steps. First, multiply the key k by a constant A in the range `0 < A < 1` and extract the fractional part of `kA`. Then, multiply this value by `m`
+and take the floor of the result. That is, the hash function is
+`h(k) = ⌊m (kA mod 1)⌋`,
+where “kA mod 1” means the fractional part of kA, that is, `kA − ⌊kA⌋`.
+The general multiplication method has the advantage that the value of
+`m` is not critical and you can choose it independently of how you choose
+the multiplicative constant `A`.
