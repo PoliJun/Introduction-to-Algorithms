@@ -1326,3 +1326,61 @@ Watch youtube: [open addresssing](https://youtu.be/Dk57JonwKNk)
 ###### Double hashing
 
 **_SKIPPED_**
+
+### 11.5 practical considerations
+
+this section discusses two aspects of modern CPUs that are not included in the standard RAM model presented in Section 2.2:
+
+-   **Memory hierarchies**:
+    -   _cache memory_
+    -   _cache blocks_
+-   **Advanced instruction sets**:
+    > Modern CPUs may have sophisticated
+    > instruction sets that implement advanced primitives useful for
+    > encryption or other forms of cryptography. These instructions may be
+    > useful in the design of exceptionally efficient hash functions.
+
+#### 11.5.1 Linear probing
+
+-   often disparaged because of its poor performance in the standard RAM model.
+-   But excels for hierarchical memory models, bcause successive probes are usually to the same cache block of memory.
+
+###### Deletion with linear probing
+
+**SKIPPED**
+
+## 12 Binary Search Trees
+
+-   operations:
+    -   SEARCH
+    -   MINIMUM
+    -   MAXIMUM
+    -   PREDECESSOR
+    -   SUCCESSOR
+    -   SUCCESSOR
+    -   INSERT
+    -   DELETE
+-   running time:
+    -   complete binary tree with `n` nodes: `Θ(lg n)`
+    -   linear chain of `n` nodes: `Θ(n)`
+
+### 12.1 What is a binary search tree?
+
+> ![figure_binary_search_tree](../pictures/figure_binary_search_tree.png)
+
+-   _binary-search-tree property_
+    > **The keys in a binary search tree are always stored in such a way as to satisfy the binary-search-tree property:**  
+    > Let `x` be a node in a binary search tree. If `y` is a node in the left
+    > subtree of `x`, then `y.key ≤ x.key`. If `y` is a node in the right
+    > subtree of `x`, then `y.key ≥ x.key`.
+-   _inorder tree walk_
+    -   a recurrsion
+    -   procedure
+        > ![procedure_inorder_tree_walk](../pictures/procedure_inorder_tree_walk.png)
+    -   running time: `Θ(n)`
+
+###### Theorem 12.1
+
+> **If `x` is the root of an `n`-node subtree, then the call `INORDER-TREE-WALK(x)` takes `Θ(n)` time.**
+>
+> ![proof_theorem_12_1](../pictures/proof_theorem_12_1.png)
