@@ -1162,7 +1162,7 @@ A good hash function statisfies (approximately) the assumption of independent un
 
 #### 13.1.1 Static hashing
 
--   the concept of \*static hashing
+-   the concept of _static hashing_
     -   using a
     -   single
     -   fixed
@@ -1195,3 +1195,134 @@ where “kA mod 1” means the fractional part of kA, that is, `kA − ⌊kA⌋`
 The general multiplication method has the advantage that the value of
 `m` is not critical and you can choose it independently of how you choose
 the multiplicative constant `A`.
+
+###### The multiply-shift method
+
+> ![figure_multiply_shift](../pictures/figure_multiply_shift.png)
+
+> ![multiply_shift_1](../pictures/multiply_shift_1.png)  
+> ![multiply_shift_2](../pictures/multiply_shift_2.png)  
+> ![multiply_shift_3](../pictures/multiply_shift_3.png)
+
+#### 11.3.2 Random hashing
+
+-   random hashing
+-   universal hashing
+
+> The only effective way to improve the situation is to choose the hash
+> function randomly in a way that is independent of the keys that are
+> actually going to be stored. This approach is called random hashing. A
+> special case of this approach, called universal hashing, can yield provably
+> good performance on average when collisions are handled by chaining,
+> no matter which keys the adversary chooses.
+
+###### Corollary 11.3
+
+> **Corollary 11.3**  
+> Using universal hashing and collision resolution by chaining in an
+> initially empty table with m slots, it takes Θ(s) expected time to handle
+> any sequence of s INSERT, SEARCH, and DELETE operations
+> containing n = O(m) INSERT operations.
+>
+> **Proof** The INSERT and DELETE operations take constant time.
+> Since the number n of insertions is O(m), we have that α = O(1).
+> Furthermore, the expected time for each SEARCH operation is O(1),
+> which can be seen by examining the proof of Theorem 11.2. That
+> analysis depends only on collision probabilities, which are 1/m for any
+> pair k1, k2 of keys by the choice of an independent uniform hash
+> function in that theorem. Using a universal family of hash functions
+> here instead of using independent uniform hashing changes the
+> probability of collision from 1/m to at most 1/m. By linearity of
+> expectation, therefore, the expected time for the entire sequence of s
+> operations is O(s). Since each operation takes Ω(1) time, the Θ(s) bound
+> follows.
+> ▪
+
+> **UNIVERSAL HASHING FROM BING**:  
+> Universal hashing is a technique for designing hash functions that reduces the probability of collisions. It involves choosing a hash function at random from a family of hash functions that have a certain mathematical property. ¹
+>
+> The mathematical property is that for any two distinct keys, the chance of them having the same hash value is low, regardless of the distribution of keys. Formally, a family of hash functions H is called universal if for any x and y in the key space, Pr[h(x) = h(y)] ≤ 1/m, where h is a random function from H and m is the number of slots in the hash table. ²
+>
+> Universal hashing has many applications in computer science, such as implementing hash tables, randomized algorithms, and cryptography. It can avoid the worst-case scenario of hashing, where an adversary can choose keys that cause many collisions and degrade the performance of hashing. ³
+>
+> Here are some links that explain more about universal hashing:
+>
+> ¹: [Universal hashing - Wikipedia](https://en.wikipedia.org/wiki/Universal_hashing)
+> ²: [Introduction to Universal Hashing in Data Structure - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-universal-hashing-in-data-structure/)
+> ³: [Universal Hashing - An Clear Explanation - Kindson The Genius](https://www.kindsonthegenius.com/universal-hashing/)
+>
+> Source: Conversation with Bing, 7/15/2023
+> (1) Universal hashing - Wikipedia. https://en.wikipedia.org/wiki/Universal_hashing.
+> (2) Introduction to Universal Hashing in Data Structure. https://www.geeksforgeeks.org/introduction-to-universal-hashing-in-data-structure/.
+> (3) Universal Hashing - An Clear Explanation - Kindson The Genius. https://www.kindsonthegenius.com/universal-hashing/.
+
+#### 11.3.3 Achievable properties of random hashing
+
+-   **properties_of_random_hashing**
+    > ![properties_of_random_hashing](../pictures/properties_of_random_hashing.png)
+
+#### 11.3.4 Designing a universal family of hash functions
+
+-   two ways in this section
+    -   based on number theory
+    -   based on randomized variant of multiply-shift method
+
+###### A universal family of hash functions based on number theory
+
+**SKIPPED, TOO MUCH EQUATIONS**
+
+#### 11.3.5 Hashing long inputs such as vectors or strings
+
+###### Number-theoretic approaches
+
+> One way to design good hash functions for variable-length inputs is to
+> extend the ideas used in Section 11.3.4 to design universal hash
+> functions. Exercise 11.3-6 explores one such approach.
+
+###### Cryptographic hashing
+
+-   _Cryptographic hash functions_
+    > Another way to design a good hash function for variable-length inputs
+    > is to use a hash function designed for cryptographic applications.
+    > Cryptographic hash functions are **complex pseudorandom functions**,
+    > designed for applications requiring properties beyond those needed
+    > here, but are robust, widely implemented, and usable as hash functions
+    > for hash tables.
+    >
+    > A cryptographic hash function takes as **input an arbitrary byte string**
+    > and returns a **fixed-length output**. For example, the NIST standard
+    > deterministic cryptographic hash function `SHA-256 [346] `produces a
+    > `256-bit` (32-byte) output for any input.
+
+### Open addressing
+
+---
+
+Watch youtube: [open addresssing](https://youtu.be/Dk57JonwKNk)
+
+---
+
+-   used for collision resolution
+    > This section describes open addressing, a method for collision
+    > resolution that, unlike chaining, does not make use of storage outside of
+    > the hash table itself
+-   all elements occupy the hash table itself
+    > In open addressing, all elements occupy the hash
+    > table itself. That is, each table entry contains either an element of the
+    > dynamic set or NIL. No lists or elements are stored outside the table,
+    > unlike in chaining.
+-   _probe_
+    > To perform insertion using open addressing, successively examine, or
+    > probe, the hash table until you find an empty slot in which to put the
+    > key.
+    >
+    > Open addressing requires that for every key k, the probe sequence 〈h(k,
+    > 0), h(k, 1), …, h(k, m − 1)〉 be a permutation of 〈0, 1, …, m − 1〉, so that
+    > every hash-table position is eventually considered as a slot for a new key
+    > as the table fills up.
+-   operation procedure
+    > ![open_addressing_procedure](../pictures/open_addressing_procedure.png)
+
+###### Double hashing
+
+**_SKIPPED_**
