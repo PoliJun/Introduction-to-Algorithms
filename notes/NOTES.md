@@ -1384,3 +1384,62 @@ this section discusses two aspects of modern CPUs that are not included in the s
 > **If `x` is the root of an `n`-node subtree, then the call `INORDER-TREE-WALK(x)` takes `Θ(n)` time.**
 >
 > ![proof_theorem_12_1](../pictures/proof_theorem_12_1.png)
+
+### 12.2 Querying a binary search tree
+
+###### Searching
+
+-   procedure
+
+    > To search for a node with a given key in a binary search tree, call the
+    > TREE-SEARCH procedure. Given a pointer `x` to the root of a subtree
+    > and a key `k`, `TREE-SEARCH(x, k)` returns a pointer to a node with key
+    > `k` if one exists in the subtree; otherwise, it returns `NIL`. To search for key
+    > `k` in the entire binary search tree `T`, call `TREE-SEARCH(T.root, k)`.
+
+    > ![procedure_tree_search](../pictures/procedure_tree_search.png)
+
+-   running time:
+    > `Ο(h)`, where `h` is the height of the tree.
+-   figure of TREE-SEARCH
+
+    > ![figure_tree_search](../pictures/figure_tree_search.png)
+
+    > Since the **TREE-SEARCH** procedure recurses on either the left
+    > subtree or the right subtree, but not both, we can rewrite the algorithm
+    > to “unroll” the recursion into a while loop. On most computers, the
+    > **ITERATIVE-TREE-SEARCH** procedure on the facing page is more
+    > efficient.
+
+###### Minimum and maximum
+
+-   just goes to the most left or the most right
+-   procedure
+    > ![procedure_minimum_maximum](../pictures/procedure_minimum_maximum.png)
+-   running time
+    > `Ο(h)`, where `h` is the height of the tree
+
+###### Successor and predecessor
+
+-   Refer to the last figure
+-   procedure
+    > ![procedure_successor_predecessor](../pictures/procedure_successor_predecessor.png)
+-   running time
+    > `Ο(h)`, where `h` is the height of the tree
+
+### 12.3 Insertion and deletion
+
+**delete is more complicated**
+
+###### Insertion
+
+-   procedure
+    > ![procedure_tree_insert](../pictures/procedure_tree_insert.png)
+-   _trailing pointer_ `y`
+-   figure
+
+    > ![figure_tree_insert](../pictures/figure_tree_insert.png)
+
+-   running time
+    > `Ο(h)`, where `h` is the height of the tree
+
