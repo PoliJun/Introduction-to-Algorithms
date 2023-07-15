@@ -1046,3 +1046,54 @@ _splices_
 > no pointers to children. Many other schemes are possible. **Which scheme is best depends on the application.**
 
 ## 11 Hash Tables
+
+---
+
+## the basic dictionary operations require only `Ο(1)` time on the average.
+
+### 11.1 Direct-address tables
+
+-   works well when univers U of keys is reasonably small.
+-   operations: DIRECT-ADDRESS-SEARCH, DIRECT-ADDRESS-INSERT, DIRECT-ADDRESS-DELETE
+    > Each takes only `Ο(1)` time.
+-   implement a direct-address table:
+    > ![figure_derect_address_table](../pictures/figure_derect_address_table.png)
+-   procedure:
+    > ![procedure_direct_address_table](../pictures/procedure_direct_address_table.png)
+
+### 11.2 Hash tables
+
+-   _hash function_
+    > use a hash function `h` to compute the slot number from the key `k`, so the element goes into `h(k)`.
+-   `h` maps `U` of keys into the slots of a hash table `T[0:m-1]: h:U -> {0,1,...,m-1}`.
+-   an element with key `k` hashes to slot `h(k)`, and we also say that `h(k)` is the hash table of key `k`.
+-   figure hash table
+    > Instead of a size of |U|, the array can have size m. An example of a
+    > simple, but not particularly good, hash function is h(k) = k mod m.
+    -   _collision_
+        > There is one hitch, namely that two keys may hash to the same slot.
+        > We call this situation a collision.
+        - figure collision:
+            > ![figure_collision](../pictures/figure_collision.png)
+    - to be random
+        > make h appear to be “random,” thus avoiding collisions
+        > or at least minimizing their number. The very term “to hash,” evoking
+        > images of random mixing and chopping, captures the spirit of this
+        > approach. (Of course, a hash function h must be deterministic in that a
+        > given input k must always produce the same output h(k).)
+###### Independent uniform hashing
+- the concept of *independent uniform hash function* 
+    - An "ideal" hashing function `h`
+    - for each possible input k in the domain `U`,
+    - an output `h(k)` that is an element randomly and independently 
+    - chosen uniformly from the range `{0,1,2,...,m-1}`.
+    - Once `h(k)` , each same input `k` yields the same output `h(k)`.
+    > often called a *random oracle*. A statement of "using *independent uniform hashing*".
+###### Collision resolution by chaining
+- figure of Collision resolution by chaining:
+    > ![figure_collision_chaining](../pictures/figure_collision_chaining.png)  
+- procedure
+    > ![procedure_chained_hash](../pictures/procedure_chained_hash.png)   
+###### Analysis of hashing with chaining
+- *load factor*:
+- hash function is *uniform*
