@@ -1470,3 +1470,72 @@ this section discusses two aspects of modern CPUs that are not included in the s
     > ![procedure_transplant](../pictures/procedure_transplant.png)
 -   procdure TREE-DELETE
     > ![procedure_tree_delete](../pictures/procedure_tree_delete.png)
+
+## 13 Red-Black Trees
+
+---
+
+Red-black trees
+are one of many search-tree schemes that are “balanced” in order to
+guarantee that basic dynamic-set operations take O(lg n) time in the
+worst case.
+
+---
+
+### 13.1 Properties of red-black trees
+
+A _red-black tree_ is a binary search tree with one extra bit of storage per
+node: its color, which can be either **RED** or **BLACK**.
+
+-   red-black properties
+    1. Every node is either **red** or **black**.
+    2. The root is black.
+    3. Every leaf (`NIL`) is black.
+    4. If a node is red, then both its children are black.
+    5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+-   figure example of red-black tree
+    > ![figure_red_black_tree](../pictures/figure_red_black_tree.png)
+-   figure shows all pointers to `NIL` are replaced by pointers to the sentinel `T.nil`.
+    > ![figure_r_b_tr_sentinel](../pictures/figure_r_b_tr_sentinel.png)
+-   figure of that omitted all leaves and root's parent
+    > ![figure_r_b_tr_omitted](../pictures/figure_r_b_tr_omitted.png)
+
+###### Lemma 13.1
+
+> **A red-black tree with n internal nodes has height at most `2 lg(n + 1)`.**
+
+> **_Proof_**  
+> We start by showing that the subtree rooted at any node `x`
+> contains at least `2bh(x) − 1` internal nodes. We prove this claim by
+> induction on the height of `x`. If the height of `x` is `0`, then `x` must be a leaf
+> `(T.nil)`, and the subtree rooted at `x` indeed contains at least `2bh(x) − 1 = 20 − 1 = 0`
+> internal nodes. For the inductive step, consider a node `x` that
+> has positive height and is an internal node. Then node `x` has two
+> children, either or both of which may be a leaf. If a child is black, then it
+> contributes 1 to `x`’s black-height but not to its own. If a child is red, then
+> it contributes to neither `x`’s black-height nor its own. Therefore, each
+> child has a black-height of either `bh(x) − 1` (if it’s black) or `bh(x)` (if it’s
+> red). Since the height of a child of `x` is less than the height of `x` itself, we
+> can apply the inductive hypothesis to conclude that each child has at
+> least `2bh(x)−1 − 1` internal nodes. Thus, the subtree rooted at `x` contains
+> at least `(2bh(x)−1 − 1) + (2bh(x)−1 − 1) + 1 = 2bh(x) − 1` internal
+> nodes, which proves the claim.
+> To complete the proof of the lemma, let h be the height of the tree.
+> According to property 4, at least half the nodes on any simple path from
+> the root to a leaf, not including the root, must be black. Consequently,
+> the black-height of the root must be at least` h/2`, and thus,
+> `n ≥ 2h/2 − 1`.
+> Moving the `1` to the left-hand side and taking logarithms on both sides
+> yields `lg(n + 1) ≥ h/2`, or `h ≤ 2 lg(n + 1)`.
+> ▪
+
+-   running time
+    > Ο(lg n), because binary search tree is Ο(h). As for **Lemma 13.1**, height is at most `2 lg(n + 1)`.
+
+### 13.2 Rotations
+
+-   **purpose** to maintain red-black tree's properties
+-   figure
+    > ![figure_rotations](../pictures/figure_rotations.png)
+-   procedure
+    > ![procedure_rotations](../pictures/procedure_rotations.png)
