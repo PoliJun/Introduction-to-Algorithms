@@ -1446,24 +1446,27 @@ this section discusses two aspects of modern CPUs that are not included in the s
 ###### Deletion
 
 -   three cases
+
     > **The overall strategy for deleting a node `z` from a binary search tree `T` has three basic cases and, as we’ll see, one of the cases is a bit tricky.**
--   If `z` has no children,
 
-    > then simply remove it by modifying its parent to replace `z` with `NIL` as its child.
+    -   If `z` has no children,
 
--   If `z` has just one child,
+        > then simply remove it by modifying its parent to replace `z` with `NIL` as its child.
 
-    > then elevate that child to take `z`’s position in the tree by modifying `z`’s parent to replace `z` by `z`’s child.
+    -   If `z` has just one child,
 
--   If `z` has two children,
-    > find `z`’s successor `y`—which must belong to
-    > `z`’s right subtree—and move `y` to take `z`’s position in the tree. The
-    > rest of `z`’s original right subtree becomes `y`’s new right subtree, and
-    > `z`’s left subtree becomes `y`’s new left subtree. Because `y` is `z`’s
-    > successor, it cannot have a left child, and `y`’s original right child
-    > moves into `y`’s original position, with the rest of `y`’s original right
-    > subtree following automatically. This case is the tricky one
-    > because, as we’ll see, it matters whether `y` is `z`’s right child.
+        > then elevate that child to take `z`’s position in the tree by modifying `z`’s parent to replace `z` by `z`’s child.
+
+    -   If `z` has two children,
+        > find `z`’s successor `y`—which must belong to
+        > `z`’s right subtree—and move `y` to take `z`’s position in the tree. The
+        > rest of `z`’s original right subtree becomes `y`’s new right subtree, and
+        > `z`’s left subtree becomes `y`’s new left subtree. Because `y` is `z`’s
+        > successor, it cannot have a left child, and `y`’s original right child
+        > moves into `y`’s original position, with the rest of `y`’s original right
+        > subtree following automatically. This case is the tricky one
+        > because, as we’ll see, it matters whether `y` is `z`’s right child.
+
 -   figure
     > ![figure_deletion_bi_search_tree](../pictures/figure_deletion_bi_search_tree.png)
 -   procedure subroutine TRANSPLANT
@@ -1548,3 +1551,15 @@ node: its color, which can be either **RED** or **BLACK**.
 Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 
 ---
+
+-   procedure of RB-INSERT and RB-INSERT-FIXUP
+    > ![precedure_rb_tree_insertion](../pictures/precedure_rb_tree_insertion.png)
+
+### 13.4 Deletion
+
+-   procedure RB-TRANSPLANT
+    > ![procedure_rb_transplant](../pictures/procedure_rb_transplant.png)
+-   procedure RB-DELETE
+    > ![procedure_rb_delete](../pictures/procedure_rb_delete.png)
+-   procedure RB-DELETE-FIXUP
+    > ![procedure_rb_delete_fixup](../pictures/procedure_rb_delete_fixup.png)
