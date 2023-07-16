@@ -1443,3 +1443,30 @@ this section discusses two aspects of modern CPUs that are not included in the s
 -   running time
     > `Ο(h)`, where `h` is the height of the tree
 
+###### Deletion
+
+-   three cases
+    > **The overall strategy for deleting a node `z` from a binary search tree `T` has three basic cases and, as we’ll see, one of the cases is a bit tricky.**
+-   If `z` has no children,
+
+    > then simply remove it by modifying its parent to replace `z` with `NIL` as its child.
+
+-   If `z` has just one child,
+
+    > then elevate that child to take `z`’s position in the tree by modifying `z`’s parent to replace `z` by `z`’s child.
+
+-   If `z` has two children,
+    > find `z`’s successor `y`—which must belong to
+    > `z`’s right subtree—and move `y` to take `z`’s position in the tree. The
+    > rest of `z`’s original right subtree becomes `y`’s new right subtree, and
+    > `z`’s left subtree becomes `y`’s new left subtree. Because `y` is `z`’s
+    > successor, it cannot have a left child, and `y`’s original right child
+    > moves into `y`’s original position, with the rest of `y`’s original right
+    > subtree following automatically. This case is the tricky one
+    > because, as we’ll see, it matters whether `y` is `z`’s right child.
+-   figure
+    > ![figure_deletion_bi_search_tree](../pictures/figure_deletion_bi_search_tree.png)
+-   procedure subroutine TRANSPLANT
+    > ![procedure_transplant](../pictures/procedure_transplant.png)
+-   procdure TREE-DELETE
+    > ![procedure_tree_delete](../pictures/procedure_tree_delete.png)
