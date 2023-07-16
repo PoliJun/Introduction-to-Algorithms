@@ -1539,3 +1539,12 @@ node: its color, which can be either **RED** or **BLACK**.
     > ![figure_rotations](../pictures/figure_rotations.png)
 -   procedure
     > ![procedure_rotations](../pictures/procedure_rotations.png)
+
+### 13.3 Insertion
+
+---
+
+**from youtube:**
+Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
+
+---
