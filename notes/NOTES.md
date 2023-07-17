@@ -1752,3 +1752,10 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 
 > In general practice, if all subproblems must be solved at least once, a bottom-up dynamic-programming algorithm usually outperforms the corresponding top-down memoized algorithm by a constant factor, because the bottom-up algorithm has no overhead for recursion and less overhead for maintaining the table. Moreover, for some problems you can exploit the regular pattern of table accesses in the dynamic-programming algorithm to reduce time or space requirements even further. On the other hand, in certain situations, some of the subproblems in the subproblem space might not need to be solved at all.
 > In that case, the memoized solution has the advantage of solving only those subproblems that are def i nitely required.
+
+### 14.4 Longest common subsequence
+
+**Watch YouTube:** [LCS](https://youtu.be/sSno9rV8Rhg)
+
+-   figure 14.8
+    > ![figure_14_8](../pictures/figure_14_8.png)
