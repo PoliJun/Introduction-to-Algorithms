@@ -1563,3 +1563,112 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
     > ![procedure_rb_delete](../pictures/procedure_rb_delete.png)
 -   procedure RB-DELETE-FIXUP
     > ![procedure_rb_delete_fixup](../pictures/procedure_rb_delete_fixup.png)
+
+# Part IV Advanced Design and Analysis Techniques
+
+## Introduction
+
+-   three important techniques
+    -   dynamic programming
+    -   greedy algorithms
+    -   amortized analysis
+
+## 14 Dynamic Programming
+
+-   _optimization problems_
+    > Dynamic programming typically applies to _optimization problems_.
+-   to develop dynamic programming, follow a sequence of four steps:
+
+    1. Characterize the structure of an optimal solution
+    2. Recursively define the value of an optimal solution
+    3. Compute the value of an optimal solution, typically in a bottom-up fashion
+    4. Construct an optimal solution from computed information
+
+    > Steps 1–3 form the basis of a dynamic-programming solution to a
+    > problem. If you need only the value of an optimal solution, and not the
+    > solution itself, then you can omit step 4. When you do perform step 4, it
+    > often pays to maintain additional information during step 3 so that you
+    > can easily construct an optimal solution.
+
+### 14.1 Rod cutting
+
+---
+
+> **From bing:**  
+> **relationship between _recurrsion_ and _dynamic programming_:**  
+> Hello, this is Bing. I'm glad you asked me about recursion and dynamic programming. Recursion is a technique where a function calls itself to solve smaller subproblems. Dynamic programming is a method of optimizing recursive functions by storing the results of subproblems in a data structure, such as a hash table or an array. This way, the same subproblem is not solved more than once, which can save time and space.
+>
+> To answer your question, not all recursion functions are dynamic. Some recursive functions may not have overlapping subproblems, or may not benefit from memoization. For example, a simple recursive function to calculate the sum of natural numbers up to n does not need dynamic programming, because each subproblem is unique and only solved once.
+>
+> However, some recursive functions can be improved by using dynamic programming. For example, the recursive function to calculate the nth Fibonacci number has many overlapping subproblems, as shown in this diagram¹. By using memoization, we can avoid repeated calculations and reduce the time complexity from exponential to linear.
+>
+> If you are interested in learning more about dynamic programming and recursion, you can check out these resources:
+>
+> -   [Introduction to Dynamic Programming | Engineering Education (EngEd ...](^1^): This article explains the basics of dynamic programming and how it differs from plain recursion. It also provides some examples of dynamic programming problems and solutions in Python.
+> -   [Improving efficiency of recursive functions (article) | Khan Academy](^3^): This article demonstrates how to use memoization to improve the efficiency of recursive functions. It also shows how to implement memoization in JavaScript and visualize the execution of the algorithm.
+> -   [Can recursion be dynamic programming? - Stack Overflow](^4^): This question and answer thread discusses whether recursion can be considered as dynamic programming and under what conditions.
+>
+> I hope this helps you understand recursion and dynamic programming better. If you have any other questions, feel free to ask me. 😊
+>
+> By the way, I can also create some images for you using artificial intelligence. If you want me to draw something for you, just let me know. 🎨
+>
+> Source: Conversation with Bing, 7/17/2023
+> (1) Introduction to Dynamic Programming | Engineering Education (EngEd .... https://www.section.io/engineering-education/introduction-to-dynamic-programming/.
+> (2) Introduction to Dynamic Programming | Engineering Education (EngEd .... https://www.section.io/engineering-education/introduction-to-dynamic-programming/.
+> (3) Improving efficiency of recursive functions - Khan Academy. https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/improving-efficiency-of-recursive-functions.
+> (4) Can recursion be dynamic programming? - Stack Overflow. https://stackoverflow.com/questions/19149974/can-recursion-be-dynamic-programming.
+> (5) Dynamic Programming and Recursion | Difference .... https://www.csestack.org/dynamic-programming-recursion/.
+
+> **Merge sort is not dynamic programming:**  
+> Merge sort is a sorting algorithm that uses the divide and conquer strategy to sort an array of elements. It recursively divides the array into smaller subarrays until each subarray has only one element, and then merges the sorted subarrays back together. Merge sort is not a dynamic programming algorithm, because it does not have overlapping subproblems. Dynamic programming requires that the same subproblem is solved multiple times, and that the optimal solution to a larger problem can be obtained by combining the optimal solutions to smaller subproblems. Merge sort does not have these properties, because each subarray is unique and only sorted once, and the merging step does not depend on the optimal solutions of the subarrays.
+>
+> If you want to learn more about merge sort and dynamic programming, you can check out these links:
+>
+> -   [Why mergesort is not Dynamic programming - Stack Overflow](^1^): This question and answer thread explains why merge sort does not fit the criteria for dynamic programming, and gives some examples of problems that do.
+> -   [Merge Sort (With Code in Python/C++/Java/C) - Programiz](^2^): This tutorial explains how merge sort works, and provides code examples in different programming languages.
+> -   [Merge Sort – Data Structure and Algorithms Tutorials](^3^): This article illustrates the working of merge sort with diagrams and pseudocode.
+> -   [ISRO | ISRO CS 2011 | Question 66 - GeeksforGeeks](^4^): This question tests your knowledge of merge sort and its time complexity.
+>
+> I hope this helps you understand merge sort and dynamic programming better. If you have any other questions, feel free to ask me. 😊
+>
+> By the way, I can also create some images for you using artificial intelligence. If you want me to draw something for you, just let me know. 🎨
+>
+> Source: Conversation with Bing, 7/17/2023
+> (1) Why mergesort is not Dynamic programming - Stack Overflow. https://stackoverflow.com/questions/15596363/why-mergesort-is-not-dynamic-programming.
+> (2) Merge Sort (With Code in Python/C++/Java/C) - Programiz. https://www.programiz.com/dsa/merge-sort.
+> (3) Merge Sort – Data Structure and Algorithms Tutorials. https://www.geeksforgeeks.org/merge-sort/.
+> (4) ISRO | ISRO CS 2011 | Question 66 - GeeksforGeeks. https://www.geeksforgeeks.org/isro-isro-cs-2011-question-66/.
+> (5) undefined. http://en.wikipedia.org/wiki/Dynamic_programming#Examples:_Computer_algorithms.
+
+---
+
+-   _time-memory trade-off_
+    > Saving subproblem solutions comes with a cost: the additional memory needed to store solutions. Dynamic programming thus serves as an example of a time-memory trade-off.
+-   _top-down_ with _memoization_
+    > The first approach is top-down with memoization.2 In this approach,
+    > you write the procedure recursively in a natural manner, but modified to
+    > save the result of each subproblem (usually in an array or hash table).
+    > The procedure now first checks to see whether it has previously solved
+    > this subproblem. If so, it returns the saved value, saving further
+    > computation at this level. If not, the procedure computes the value in
+    > the usual manner but also saves it. We say that the recursive procedure
+    > has been memoized: it “remembers” what results it has computed
+    > previously.
+-   _bottom-up method_
+    > The second approach is the bottom-up method. This approach
+    > typically depends on some natural notion of the “size” of a subproblem,
+    > such that solving any particular subproblem depends only on solving
+    > “smaller” subproblems. Solve the subproblems in size order, smallest
+    > first, storing the solution to each subproblem when it is first solved. In
+    > this way, when solving a particular subproblem, there are already saved
+    > solutions for all of the smaller subproblems its solution depends upon.
+    > You need to solve each subproblem only once, and when you first see it,
+    > you have already solved all of its prerequisite subproblems.
+-   procedure MEMOIZED-CUT-ROD and BOTTOM-UP-CUT-ROD
+    > ![procedure_rod_cutting](../pictures/procedure_rod_cutting.png)
+
+###### Reconstructing a slolution
+
+-   returns the solution _itself: a list of piece sizes_.
+-   procedure EXTENDED-BOTTOM-UP-CUT-ROD
+    > ![procedure_extended_bucr](../pictures/procedure_extended_bucr.png)
