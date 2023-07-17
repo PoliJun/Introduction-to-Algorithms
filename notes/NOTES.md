@@ -1575,6 +1575,17 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 
 ## 14 Dynamic Programming
 
+-   **What is dynamic programming?**
+    > In contrast, dynamic programming applies when the
+    > subproblems overlap—that is, when subproblems share
+    > subsubproblems. In this context, a divide-and-conquer algorithm does
+    > more work than necessary, repeatedly solving the common
+    > subsubproblems.
+    >
+    > A dynamic-programming algorithm solves each
+    > subsubproblem just once and then saves its answer in a table, thereby
+    > avoiding the work of recomputing the answer every time it solves each
+    > subsubproblem.
 -   _optimization problems_
     > Dynamic programming typically applies to _optimization problems_.
 -   to develop dynamic programming, follow a sequence of four steps:
@@ -1672,3 +1683,72 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 -   returns the solution _itself: a list of piece sizes_.
 -   procedure EXTENDED-BOTTOM-UP-CUT-ROD
     > ![procedure_extended_bucr](../pictures/procedure_extended_bucr.png)
+
+### 14.2 Matrix-chain multiplication
+
+> **Watch YouTube:** [Matrix Chain Multiplication - Dynamic Programming](https://youtu.be/prx1psByp7U)
+
+**THE PROBLEM IS NOT MULTIPLAY THE MATRICES, BUT KNOWING HOW TO MULTIPLY THEM!!!!!!!!!!**
+
+-   _fully parenthesized_
+    > A product of matrices is fully
+    > parenthesized if it is either a single matrix or the product of two fully
+    > parenthesized matrix products, surrounded by parentheses. For
+    > example, if the chain of matrices is `〈A1, A2, A3, A4〉`, then you can fully
+    > parenthesize the product `A1A2A3A4` in five distinct ways:  
+    > `(A1(A2(A3A4)))`,  
+    > `(A1((A2A3)A4))`,  
+    > `((A1A2)(A3A4))`,  
+    > `((A1(A2A3))A4)`,  
+    > `(((A1A2)A3)A4)`.
+
+### 14.3 Elements of dynamic programming
+
+-   Optimal substructure varies across problem domains in two ways:
+    1. how many subproblems an optimal solution to the original
+       problem uses, and
+    2. how many choices you have in determining which subproblem(s)
+       to use in an optimal solution.
+-   subtleties
+
+    > ![subtleties_d_p](../pictures/subtleties_d_p.png)
+
+    > ![figure_14_6](../pictures/figure_14_6.png)
+
+-   _overlapping subproblems_
+
+    > Typically, the total number of distinct subproblems is a
+    > polynomial in the input size. When a recursive algorithm revisits the
+    > same problem repeatedly, we say that the optimization problem has
+    > overlapping subproblems.
+
+    > ![figure_14_7](../pictures/figure_14_7.png)
+
+-   procedure RECURSIVE-MATRIX-CHAIN
+    > ![recursive_m_c](../pictures/recursive_m_c.png)
+
+###### Reconstructing an optimal solution
+
+> As a practical matter, you’ll often want to store in a separate table
+> which choice you made in each subproblem so that you do not have to
+> reconstruct this information from the table of costs.
+
+###### Memoization
+
+> As we saw for the rod-cutting problem, there is an alternative approach
+> to dynamic programming that often offers the efficiency of the bottom-
+> up dynamic-programming approach while maintaining a top-down
+> strategy. The idea is to memoize the natural, but inefficient, recursive
+> algorithm.
+
+-   precedure MEMOIZED-MATRIX-CHAIN
+
+    > ![procedure_memoized_mc](../pictures/procedure_memoized_mc.png)
+
+-   two types of LOOKUP-CHAIN
+    1. calls in which m[i, j] = ∞, so that lines 3–9 execute, and
+    2. calls in which m[i, j] < ∞, so that LOOKUP-CHAIN simply
+       returns in line 2.
+
+> In general practice, if all subproblems must be solved at least once, a bottom-up dynamic-programming algorithm usually outperforms the corresponding top-down memoized algorithm by a constant factor, because the bottom-up algorithm has no overhead for recursion and less overhead for maintaining the table. Moreover, for some problems you can exploit the regular pattern of table accesses in the dynamic-programming algorithm to reduce time or space requirements even further. On the other hand, in certain situations, some of the subproblems in the subproblem space might not need to be solved at all.
+> In that case, the memoized solution has the advantage of solving only those subproblems that are def i nitely required.
