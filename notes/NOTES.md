@@ -1807,7 +1807,11 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 
 ###### Step 3: Computing the expected search cost of an optimal binary search tree
 
-> ![figure_14_10](../pictures/figure_14_10.png)
+-   procedure OPTIMAL-BST
+
+    > ![procedure_optimal_bst](../pictures/procedure_optimal_bst.png)
 
 -   running time:
     > `Θ(n^3)`, `Ω(n^3)`.
+-   figure table
+    ![figure_14_10](../pictures/figure_14_10.png)
