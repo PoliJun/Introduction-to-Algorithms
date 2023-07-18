@@ -1759,3 +1759,55 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 
 -   figure 14.8
     > ![figure_14_8](../pictures/figure_14_8.png)
+
+### 14.5 Optimal binary search trees
+
+-   An `n`-nodes binary search tree, have `n+1` unsuccessful nodes
+-   This example demonstrates that an optimal binary
+    search tree is not necessarily a tree whose overall height is smallest. Nor
+    does an optimal binary search tree always have the key with the greatest
+    probability at the root.
+
+-   formulas
+    -   Since every search is either successful (finding some key ki) or
+        unsuccessful (finding some dummy key di), we have
+        > ![formula_14_10](../pictures/formula_14_10.png)
+    -   figure of optimal binary search tree
+        > ![figure_14_9](../pictures/figure_14_9.png)
+    -   Let us assume that the actual cost of a search equals the number of nodes examined, which is the depth of the node found by the search in T, plus 1. Then the expected cost of a search in T is
+        > ![formula_14_11](../pictures/formula_14_11.png)
+    -   **an optimal binary search tree is not necessarily a tree whose overall height is smallest**
+
+##### Solve this problem with dynamic programming
+
+> **We can't compare all structures, it's too many!!!**
+
+###### Step 1: The structure of an optimal binary search tree
+
+-   `1 <= i<= j <= n`
+-   `ki,...kj`
+-   `d i-1,...d j`
+-   `kr` is the root of an optimal subtree
+-   `i <= r <= j`
+-   `k r-1`, `k r+1`
+-   cut and paste
+
+###### Step 2: A recursive solution
+
+-   `e[i, j]`,
+    > Let e[i, j] denote the expected cost of searching an optimal binary search tree containing the keys ki, …, kj.
+    > Your goal is to compute e[1, n], the expected cost of searching an optimal binary search tree for all the actual and dummy keys.
+
+> To define the value of an optimal solution recursively, the subproblem domain is finding an optimal binary search tree containing the keys ki, …, kj, where i ≥ 1, j ≤ n, and j ≥ i − 1. (When j = i − 1, there is just the dummy key di−1, but no actual keys.) Let e[i, j] denote the expected cost of searching an optimal binary search tree containing the keys ki, …, kj.
+> Your goal is to compute e[1, n], the expected cost of searching an optimal binary search tree for all the actual and dummy keys.
+
+> What happens to the expected search cost of a subtree when it becomes a subtree of a node? The depth of each node in **the subtree increases by 1. By equation (14.11), the expected search cost of this subtree increases by the sum of all the probabilities in the subtree.**
+> For a subtree with keys ki, …, kj, denote this sum of probabilities as  
+> ![formula_14_12_to_14](../pictures/formula_14_12_to_14.png)
+
+###### Step 3: Computing the expected search cost of an optimal binary search tree
+
+> ![figure_14_10](../pictures/figure_14_10.png)
+
+-   running time:
+    > `Θ(n^3)`, `Ω(n^3)`.
