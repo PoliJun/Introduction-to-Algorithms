@@ -1815,3 +1815,23 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
     > `Θ(n^3)`, `Ω(n^3)`.
 -   figure table
     ![figure_14_10](../pictures/figure_14_10.png)
+
+## 15 Greedy Algorithms
+
+-   concept of Greedy Algorithm
+    > A _greedy algorithm_ always makes the choice that looks best at the moment.
+-   Greedy algorithms do not always yield optimal solutions, but for many problems they do.
+
+### 15.1 An activity-selection problem
+
+-   _activities_
+-   _start time_ and _finish time_
+-   `Ai` and `Aj` are _compatible_
+-   _activity-selection problem_
+-   a figure of activities
+    > ![figure_15_1](../pictures/figure_15_1.png)
+
+###### The optimal substructure of the activity-selection problem
+- formula for optimal solution
+    > ![formula_15_2](../pictures/formula_15_2.png)
+###### Making the greedy choice
