@@ -13,3 +13,9 @@
     ans=float('inf')
     ```
 -   median is the solution of `segment_start`
+
+# Assign Mice to Holes
+
+-   N mice and N holes
+-   seperately sort two lists
+-   pair every mouse and hole by their permutation
