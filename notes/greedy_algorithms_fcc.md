@@ -25,3 +25,5 @@
 -   sneaky solution:
     -   use 1 to do a bit operation
     -   1 for testing zero
+# gas station
+
