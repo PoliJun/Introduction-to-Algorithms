@@ -19,3 +19,9 @@
 -   N mice and N holes
 -   seperately sort two lists
 -   pair every mouse and hole by their permutation
+
+# Mafority Element
+
+-   sneaky solution:
+    -   use 1 to do a bit operation
+    -   1 for testing zero
