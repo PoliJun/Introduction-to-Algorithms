@@ -1835,3 +1835,7 @@ Watch video: [rb-tree-insertion](https://youtu.be/5IBxA-bZZH8)
 - formula for optimal solution
     > ![formula_15_2](../pictures/formula_15_2.png)
 ###### Making the greedy choice
+
+# Part VI Graph Algorithms
+
+## Introduction
