@@ -11,8 +11,9 @@
             -   adjacency list
                 > ![adjacency list](../pictures/adjacency_list.jpg)
             -   depth first traversal
-                > follow a direction to the deapest first.
-                > **USE STACK**
+                > follow a direction to the deapest first.  
+                > **USE STACK**   
+                > [code](../excercises_code/dft_stack.js)
             -   breadth first traversal
                 > find all the neighbors of a node first
                 > **USE QUEUE**
