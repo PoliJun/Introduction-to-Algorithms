@@ -1,0 +1,18 @@
+# Graph basics
+
+-   graph = nodes + edges
+    -   nodes and edges
+        > ![graph](../pictures/graph.jpg)
+    -   kinds of graphs: _directed graph_ and _undirected graph_
+        > ![directed graph and undirected graph](../pictures/kinds_of_grahps.jpg)
+        -   directed graph
+            -   neighbor
+                > ![neighbor](../pictures/neibor.jpg)
+            -   adjacency list
+                > ![adjacency list](../pictures/adjacency_list.jpg)
+            -   depth first traversal
+                > follow a direction to the deapest first.
+                > **USE STACK**
+            -   breadth first traversal
+                > find all the neighbors of a node first
+                > **USE QUEUE**
