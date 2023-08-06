@@ -36,8 +36,20 @@
 -   time and space complexity: `n = nodes` and `e = edges`
     -   Time: `Ο(e)`
     -   Space: `Ο(n)`
+
 # connected components count
+
 ![count and mark]()
-- time and space complexity: `n = nodes` and `e = edges`  
-    - Time: `Ο(e)`
-    - Space: `Ο(n)`
+
+-   time and space complexity: `n = nodes` and `e = edges`
+    -   Time: `Ο(e)`
+    -   Space: `Ο(n)`
+
+# largest component
+
+-   time and space complexity: `n = nodes` and `e = edges`
+    -   Time: `Ο(e)`
+    -   Space: `Ο(n)`
+# shortest path
+- use bfs
+    > bfs get the target path evenly
