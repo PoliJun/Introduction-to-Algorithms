@@ -1,6 +1,7 @@
 # Graph basics
 
--   graph = nodes + edges
+## graph = nodes + edges
+
     -   nodes and edges
         > ![graph](../pictures/graph.jpg)
     -   kinds of graphs: _directed graph_ and _undirected graph_
@@ -11,9 +12,20 @@
             -   adjacency list
                 > ![adjacency list](../pictures/adjacency_list.jpg)
             -   depth first traversal
-                > follow a direction to the deapest first.  
-                > **USE STACK**   
+                > follow a direction to the deapest first.
+                > **USE STACK**
                 > [code](../excercises_code/dft_stack.js)
             -   breadth first traversal
                 > find all the neighbors of a node first
                 > **USE QUEUE**
+
+# has-path problem
+
+-   `cycle`
+    > ![what is a cycle]()
+-   `acyclic`
+    > ![wath is acyclic]()
+-   Time: `Ο(e)`, Space: `Ο(n)`
+    > `n = nodes`  
+    > `e = edges`
+    > ![time and space of dft]()
