@@ -10,7 +10,7 @@ const graph = {
 const dftHaspathStack = (graph, src, dst) => {
     let stack = [src];
     while (graph[src].length > 0) {
-        let current = stack.shift();
+        let current = stack.pop();
         console.log(current);
         if (current == dst) return true;
         for (let neighbor of graph[current]) {
@@ -33,8 +33,21 @@ const dftHaspathRecurrsion = (graph, src, dst) => {
 
 // bft queue
 const bftQueue = (graph, src, dst) => {
-    let queue = []
-}
+    const queue = [src];
+    while (queue.length > 0) {
+        const current = queue.shift();
+        console.log(current);
+        if (current === dst) {
+            return true;
+        } else {
+            for (let neighbor of graph[current]) {
+                queue.push(neighbor);
+            }
+        }
+    }
+    return false;
+};
 
 console.log("stack: " + dftHaspathStack(graph, "f", "k"));
 console.log("recurrsion: " + dftHaspathRecurrsion(graph, "f", "k"));
+console.log("queue: " + bftQueue(graph, "f", "k"));
