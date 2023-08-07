@@ -53,3 +53,7 @@
 # shortest path
 - use bfs
     > bfs get the target path evenly
+# island count
+- time and space complexity: `r = rows` and `c = cols`
+    - Time: `Ο(rc)`
+    - Space: `Ο(rc)`
