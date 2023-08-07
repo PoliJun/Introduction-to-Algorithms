@@ -10,7 +10,7 @@ const islandCount = (grid) => {
     }
     return count;
 };
-
+// This recurrsion explore all the land connected node and to mark them as visited, if meet base case, stop recurrsion.
 const explore = (grid, r, c, visited) => {
     const rowInbounds = 0 <= r && r < grid.length;
     const colInbounds = 0 <= c && c < grid[0].length;
