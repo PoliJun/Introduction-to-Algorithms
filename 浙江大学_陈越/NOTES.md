@@ -12,7 +12,7 @@
 ## `clock()`
 
 `#include <time.h>`
-![alt](img/clock().pic.jpg)
+![alt](<img/clock().pic.jpg>)
 
 ## 什么是数据结构？
 
@@ -49,3 +49,34 @@
 ### 例： 选择排序算法的 pseudocode
 
 ![alt](img/选择排序pseudo.pic.jpg)
+
+## 什么是好的算法
+
+-   空间复杂度 S(n)
+    > 根据算法写成的程序在执行时占用存储单元的长度。
+-   时间复杂度 T(n)
+    > 根据算法写成的程序在执行时耗费时间的长度。
+
+### 分析算法效率
+
+-   最坏情况复杂度 Tworst(n)
+-   平均复杂度 Tavg(n)
+
+### 复杂度的渐进表示法
+
+![alt](img/复杂度的渐进表示法.jpg)
+
+-   增长率曲线图
+    ![alt](img/曲线.jpg)
+
+### 复杂度分析小窍门
+
+![alt](img/xiaoqiaomen.jpg)
+
+### 例：最大子列和问题
+
+intuition:
+improve a `O(n^2)` to `O(n log n)`
+**分而治之**
+![分而治之数学分析](img/fenzhimath.jpg)
+**在线处理**
