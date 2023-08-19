@@ -76,11 +76,11 @@
 ### 例：最大子列和问题
 
 intuition:
-improve a `O(n^2)` to `O(n log n)`
-**分而治之**
+improve a `O(n^2)` to `O(n log n)`  
+**分而治之**  
 ![分而治之数学分析](img/fenzhimath.jpg)
-**在线处理**
-![O(n) 在线处理](https://)
+**在线处理**  
+![O(n) 在线处理](img/在线处理.jpg)
 
 # 2 线性结构
 
