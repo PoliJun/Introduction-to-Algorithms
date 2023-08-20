@@ -373,4 +373,6 @@ like a family tree
 
 ### 二叉树的非递归遍历
 
-![zxbldfdgbl](img/zxbldfdgbl.png)
+中序遍历：  
+![zxbldfdgbl](img/zxbldfdgbl.png)  
+也可先序遍历和后序遍历。移动 print 位置即可。
