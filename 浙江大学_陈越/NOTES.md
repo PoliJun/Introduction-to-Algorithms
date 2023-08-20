@@ -261,4 +261,29 @@ Top 永远是当前最高优先级
 
 指针的指针：rear 初始指向一个空节点
 
-> ![cxkjdj](https://)
+> ![cxkjdj](img/cxkjdj.png))
+
+### 如何将两个多项式相乘
+
+转换为加法运算
+![rhjlgdxsxc](img/rhjlgdxsxc.png)
+
+# 树
+
+## 什么是树
+
+like a family tree
+
+## 查找
+
+定义：根据某个给定关键字 K， 从集合 R 中找出关键字与 K 相同的记录
+
+-   静态查找
+    > 没有插入和删除的操作
+    -   哨兵
+        > ![jtcz,sxcz](img/jtczsxcz.png)
+    -   二分查找
+        -   数据必须有序排列
+        -   必须连续存放(数组)
+-   动态查找
+    > 可以发生插入和删除
