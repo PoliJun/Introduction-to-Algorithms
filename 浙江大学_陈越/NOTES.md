@@ -248,9 +248,17 @@ Top 永远是当前最高优先级
 
 ![bdtjddlsdlcdcz](img/bdtjddlsdlcdcz.png)
 
-## 多项式加法运算
+## 一元多项式的加乘法实现
+
+### 多项式加法运算
 
 -   the structure of the
     1. 系数
     2. 指数
     3. 指向下一个节点的指针
+
+### 程序框架搭建
+
+指针的指针：rear 初始指向一个空节点
+
+> ![cxkjdj](https://)
