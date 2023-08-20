@@ -234,3 +234,23 @@ Top 永远是当前最高优先级
         2. 仅使用 n-1 个空间
     -   (rear+1) % MaxSeze == 0, 则满
     -   front == rear， 则空
+
+### 队列的链式存储实现
+
+队列的链式存储结构也可以用一个单链表实现。插入和删除操作分别在链表的两头进行。 front 在头部，rear 在尾部。  
+定义 Qnode，里面有两个指针，分别指向 Front 节点和 rear 节点。
+
+-   front == null : 空
+
+![dldlsccsx](img/dldlsccsx.png)
+
+#### 不带头节点的链式队列出队操作
+
+![bdtjddlsdlcdcz](img/bdtjddlsdlcdcz.png)
+
+## 多项式加法运算
+
+-   the structure of the
+    1. 系数
+    2. 指数
+    3. 指向下一个节点的指针
