@@ -325,4 +325,52 @@ like a family tree
 -   斜二叉树
 -   完美二叉树/满二叉树
 -   完全二叉树
-    > ![tsecs](img/tsecs.png)
+
+> ![tsecs](img/tsecs.png)
+
+#### 二叉树的几个重要性质
+
+![ecsdjgzyxz](img/ecsdjgzyxz.png)
+
+#### 二叉树的抽象数据类型定义
+
+最主要的操作是遍历  
+![ecsdcxsjlxdy](img/ecsdcxsjlxdy.png)
+
+### 二叉树的存储结构
+
+-   使用完全二叉树,数组存储
+    ![ecsdszcc](img/ecsdszcc.png)
+-   链表存储
+    ![ecsdlbcc](img/ecsdlbcc.png)
+
+### 二叉树的遍历
+
+-   先序遍历
+
+    1. 访问根节点
+    2. 先序遍历左子树
+    3. 先序遍历右子树
+
+    > 递归实现
+    > ![alt](img/xxbl.png)
+
+-   中序遍历
+
+    1. 中序遍历左子树
+    2. 访问根节点
+    3. 中序遍历右子树
+
+    ![alt](img/zxbl.png)
+
+-   后序遍历
+
+    1. 后序遍历左子树
+    2. 后序遍历右子树
+    3. 访问根节点
+
+    ![alt](img/hxbl.png)
+
+### 二叉树的非递归遍历
+
+![zxbldfdgbl](img/zxbldfdgbl.png)
