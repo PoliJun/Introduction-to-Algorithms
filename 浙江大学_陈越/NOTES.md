@@ -411,8 +411,151 @@ else return 0; /* 空树深度为0 */
     2. 建二叉树
     3. 同构判断
 -   结构数组
-    >没有指向的是根节点
+    > 没有指向的是根节点
     > 是静态数组
-    > ![结构数组表示二叉树]()
-- 如何判断二叉树同构
-    ![如何判断二叉树同构]()
+    > ![结构数组表示二叉树](img/jgszbsecs.png)
+-   如何判断二叉树同构
+    ![如何判断二叉树同构1](img/rhpdecssstg2.png)
+    ![如何判断二叉树同构2](img/rhpdecssstg1.png)
+
+    ```c
+    int Isomorphic ( Tree R1, Tree R2 )
+    {
+    if ( (R1==Null )&& (R2==Null) ) /* both empty */
+    return 1;
+    if ( ((R1==Null)&&(R2!=Null)) || ((R1!=Null)&&(R2==Null)) )
+    return 0; /* one of them is empty */
+    if ( T1[R1].Element != T2[R2].Element )
+    return 0; /* roots are different */
+    if ( ( T1[R1].Left == Null )&&( T2[R2].Left == Null ) )
+    /* both have no left subtree */
+    return Isomorphic( T1[R1].Right, T2[R2].Right );
+    ……
+    }
+    ```
+
+    ```c
+    int Isomorphic ( Tree R1, Tree R2 )
+    { ……
+    if ( ((T1[R1].Left!=Null)&&(T2[R2].Left!=Null))&&
+    ((T1[T1[R1].Left].Element)==(T2[T2[R2].Left].Element)) )
+    /* no need to swap the left and the right */
+    return ( Isomorphic( T1[R1].Left, T2[R2].Left ) &&
+    Isomorphic( T1[R1].Right, T2[R2].Right ) );
+    else /* need to swap the left and the right */
+    return ( Isomorphic( T1[R1].Left, T2[R2].Right) &&
+    Isomorphic( T1[R1].Right, T2[R2].Left ) );
+    }
+    ```
+
+## 二叉搜索树
+
+-   查找问题
+    -   静态查找与动态查找
+    -   针对动态查找， 数据如何组织
+
+### 查找最大值和最小值
+
+-   最大元素一定是在树的最右分枝的端结点上
+    ```c
+    Position FindMax( BinTree BST )
+    { if(BST )
+    while( BST->Right ) BST = BST->Right;
+    /*沿右分支继续查找，直到最右叶结点*/
+    return BST;
+    }
+    ```
+-   最小元素一定是在树的最左分枝的端结点上
+    ```c
+    Position FindMin( BinTree BST )
+    { if( !BST ) return NULL; /*空的二叉搜索树，返回NULL*/
+    else if( !BST->Left )
+    return BST; /*找到最左叶结点并返回*/
+    elsereturn FindMin( BST->Left ); /*沿左分支继续查找*/
+    }
+    ```
+
+### 二叉搜索树的插入
+
+-   关键是要找到元素应该插入的位置，可以采用与 Find 类似的方法
+
+```c
+BinTree Insert( ElementType X, BinTree BST )
+{
+if( !BST ){
+/*若原树为空，生成并返回一个结点的二叉搜索树*/
+BST = malloc(sizeof(struct TreeNode));
+BST->Data = X;
+BST->Left = BST->Right = NULL;
+}else /*开始找要插入元素的位置*/
+if( X < BST->Data )
+BST->Left = Insert( X, BST->Left);
+/*递归插入左子树*/
+else if( X > BST->Data )
+BST->Right = Insert( X, BST->Right);
+/*递归插入右子树*/
+/* else X已经存在，什么都不做 */
+return BST;
+}
+```
+
+### 二叉搜索树的删除
+
+-   考虑三种情况
+    1. 要删除的是叶节点
+    2. 要删除的节点有左、右两棵子树
+        - 用另一节点替代别删除的节点：**右子树的最小**或**左子树的最大**
+        ```c
+        BinTree Delete( ElementType X, BinTree BST )
+        { Position Tmp;
+        if( !BST ) printf("要删除的元素未找到");
+        else if( X < BST->Data )
+        BST->Left = Delete( X, BST->Left); /* 左子树递归删除 */
+        else if( X > BST->Data )
+        BST->Right = Delete( X, BST->Right); /* 右子树递归删除 */
+        else /*找到要删除的结点 */
+        if( BST->Left && BST->Right ) { /*被删除结点有左右两个子结点 */
+        Tmp = FindMin( BST->Right );
+        /*在右子树中找最小的元素填充删除结点*/
+        BST->Data = Tmp->Data;
+        BST->Right = Delete( BST->Data, BST->Right);
+        /*在删除结点的右子树中删除最小元素*/
+        } else { /*被删除结点有一个或无子结点*/
+        Tmp = BST;
+        if( !BST->Left ) /* 有右孩子或无子结点*/
+        BST = BST->Right;
+        else if( !BST->Right ) /*有左孩子或无子结点*/
+        BST = BST->Left;
+        free( Tmp );
+        }
+        return BST;
+        }
+        ```
+    3.
+
+### 平衡二叉树
+
+-   **平衡因子**
+    > Balance Factor, BF. BF(T) = hl - hr.
+-   平衡二叉树
+    > Balance Binary Tree, AVL
+    > 空树， 或者任一节点左、右子树高度差的绝对值不超过 1，即`｜BF(T)｜ <= 1`
+-   平衡二叉树
+    > 满足 Time: `Ο(log n)`.
+
+### 平衡二叉树的调整
+
+-   右旋
+    > 插在发现者的右子树的右子树上  
+    >  ![rr rotate](img/RR.png)
+-   左旋
+    > 插在发现者的左子树的左子树上
+    > ![左旋](img/LL.png)
+-   左右旋
+    > 插在发现者的左子树的右子树上
+    > ![LR](img/LR.png)
+-   右左旋
+    > 插在发现者的右子树的左子树上
+    > ![RL](img/RL.png)
+
+### 是否是同一棵二叉搜索树
