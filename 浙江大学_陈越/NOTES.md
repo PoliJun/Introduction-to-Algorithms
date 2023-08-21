@@ -376,3 +376,30 @@ like a family tree
 中序遍历：  
 ![zxbldfdgbl](img/zxbldfdgbl.png)  
 也可先序遍历和后序遍历。移动 print 位置即可。
+
+### 层序遍历
+
+-   核心问题：**二维结构的线性化**
+-   从节点访问其左右儿子节点 - 保存节点
+-   需要一个存储结构保存暂时不访问的节点
+-   存储结构：堆栈、队列
+    > 堆栈保存自己，队列保存未访问的儿子节点
+    > ![cxjbgc](img/cxbldjbgc.png)
+
+### 二叉树遍历的应用
+
+求树的高度
+【例】求二叉树的高度。
+
+```c
+// 求左子树深度，求右子树深度。 二者去大，+1
+int PostOrderGetHeight( BinTree BT ) { int HL, HR, MaxH;
+if( BT ) {
+HL = PostOrderGetHeight(BT->Left); /*求左子树的深度*/
+HR = PostOrderGetHeight(BT->Right); /*求右子树的深度*/
+MaxH = （HL > HR）? HL : HR; /*取左右子树较大的深度*/
+return ( MaxH + 1 ); /*返回树的深度*/ }
+else return 0; /* 空树深度为0 */
+}
+```
+
