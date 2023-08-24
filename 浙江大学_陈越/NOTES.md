@@ -622,3 +622,6 @@ return BST;
 - 哈夫曼树的定义
     - ![哈夫曼树的定义](img/)
     - 最优二叉树或哈夫曼树：WPL最小的二叉树。
+
+###### my own experience
+To build a data structure, build an Object or use key value pairs.
